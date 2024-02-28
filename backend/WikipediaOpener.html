@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikipedia Opener</title>
+    <script> 
+        var year = '1951';
+        function changeURL() {
+            year = parseInt(year) + 1;
+            var url = "https://en.wikipedia.org/wiki/" + year + '-' + (year + 1).toString().slice(-2) + "_NBA_season";
+            document.getElementById('wiki_frame').src = url;
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="changeURL()">Next Link</button>
+    <iframe src="https://en.wikipedia.org/wiki/1951%E2%80%9352_NBA_season" title="W3Schools Free Online Web Tutorials"
+        id="wiki_frame"></iframe>
+    <style>
+        #wiki_frame {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</body>
+
+</html>
