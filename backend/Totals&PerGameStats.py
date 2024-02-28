@@ -12,38 +12,38 @@ from google.cloud import firestore
 
 db = firestore.Client()
 
-basic_stats = ['PTS', 'REB', 'AST', 'BLK', 'STL']
+basicStats = ['PTS', 'REB', 'AST', 'BLK', 'STL']
 
-advanced_stats = ['GP', 'MIN', 'FGM', 'FGA', 'FG3M', 'FG3A', 'FTM', 'FTA', 'FT_PCT', 'FG3_PCT', 'TOV', 'EFF']
+advancedStats = ['GP', 'MIN', 'FGM', 'FGA', 'FG3M', 'FG3A', 'FTM', 'FTA', 'FT_PCT', 'FG3_PCT', 'TOV', 'EFF']
 
 years = range(1951, 2023) # CHANGE RANGE HERE TO UPDATE LIST!
 
-per_modes = ['Totals', 'PerGame']
+perModes = ['Totals', 'PerGame']
 
 for year in years:
-    year_doc = db.collection('nba_leaders').document(str(year))
-    for per_mode in per_modes:
-        for stat in basic_stats:
-            response = requests.get(f"https://stats.nba.com/stats/leagueleaders?LeagueID=00&PerMode={per_mode}&Scope=S&Season={year}-{str(year+1)[-2:]}&SeasonType=Regular+Season&StatCategory={stat}")
+    yearDocRef = db.collection('nba_leaders').document(str(year))
+    for perMode in perModes:
+        for stat in basicStats:
+            response = requests.get(f"https://stats.nba.com/stats/leagueleaders?LeagueID=00&PerMode={perMode}&Scope=S&Season={year}-{str(year+1)[-2:]}&SeasonType=Regular+Season&StatCategory={stat}")
             print(response.status_code)
             print(response.text)
             try:
                 data = response.json()
-            except json.decoder.JSONDecodeError:
+            except json.decoder.JSONDecodeError: # If the response is not JSON
                 print("Failed to decode JSON from response")
                 continue
-            player_stats = data['resultSet']['rowSet']
-            if player_stats:
-                leader = player_stats[0]
-                leader_dict = dict(zip(data['resultSet']['headers'], leader))
-                stat_doc = year_doc.collection(f"{per_mode}_{stat}_Leader").document()
-                stat_doc.set({
-                    'name': leader_dict['PLAYER'],
-                    'value': leader_dict[stat]
+            playerStats = data['resultSet']['rowSet']
+            if playerStats:
+                leader = playerStats[0]
+                leaderDictionary = dict(zip(data['resultSet']['headers'], leader))
+                leaderDoc = yearDocRef.collection(f"{perMode}_{stat}_Leader").document()
+                leaderDoc.set({ # Add the leader to the firestore database
+                    'name': leaderDictionary['PLAYER'],
+                    'value': leaderDictionary[stat]
                 })
-                print(f"Added {year} {per_mode} {stat} leader to Firestore.")
+                print(f"Added {year} {perMode} {stat} leader to Firestore.")
 
-    for stat in advanced_stats:
+    for stat in advancedStats:
         response = requests.get(f"https://stats.nba.com/stats/leagueleaders?LeagueID=00&PerMode=Totals&Scope=S&Season={year}-{str(year+1)[-2:]}&SeasonType=Regular+Season&StatCategory={stat}")
         print(response.status_code)
         try:
@@ -51,13 +51,13 @@ for year in years:
         except json.decoder.JSONDecodeError:
             print("Failed to decode JSON from response")
             continue
-        player_stats = data['resultSet']['rowSet']
-        if player_stats:
-            leader = player_stats[0]
-            leader_dict = dict(zip(data['resultSet']['headers'], leader))
-            stat_doc = year_doc.collection(f"Totals_{stat}_Leader").document()
-            stat_doc.set({
-                'name': leader_dict['PLAYER'],
-                'value': leader_dict[stat]
+        playerStats = data['resultSet']['rowSet']
+        if playerStats:
+            leader = playerStats[0]
+            leaderDictionary = dict(zip(data['resultSet']['headers'], leader)) # dictionary from headers and data
+            leaderDoc = yearDocRef.collection(f"Totals_{stat}_Leader").document()
+            leaderDoc.set({
+                'name': leaderDictionary['PLAYER'],
+                'value': leaderDictionary[stat]
             })
             print(f"Added {year} Totals {stat} leader to Firestore.")
