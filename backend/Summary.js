@@ -1,14 +1,35 @@
 
 
-// LIBRARY IMPORTS
+// WEB SCRAPING IMPORTS
 const axios = require('axios');
 const cheerio = require('cheerio');
+
+// FIREBASE IMPORTS
+
+const { initializeApp , applicationDefault, cert } = require('firebase-admin/app');
+const { getFirestore } = require('firebase-admin/firestore');
+
+// THIS IS FOR LAPTOP
+const serviceAccount = require('C:/Users/drbx3/Documents/Fall 2023-2024/alltimehoops/basketballstats-f03ae-firebase-adminsdk-983h4-6d9d2ff860.json');
+
+// THIS IS FOR PC
+//const serviceAccount = require('C:/Users/drbx3/Documents/VSProjects/alltimehoops/basketballstats-f03ae-firebase-adminsdk-983h4-8fbf803424.json');
+
+initializeApp({
+    credential: cert(serviceAccount)
+});
+
+const db = getFirestore();
+
+const collectionRef = db.collection('nba_summaries');
+
+
 
 async function scrapeNotableOccurrences(year) { //async function that scrapes a given year's notable occurences
     try {
 
         //gets the current year's url
-        const url = `https://en.wikipedia.org/wiki/${year}%E2%80%93${(year + 1).toString().slice(-2)}_NBA_season`; 
+        const url = `https://en.wikipedia.org/wiki/${year}%E2%80%93${(year + 1).toString().slice(-2)}_BAA_season`; 
         
         //gets the response from the url
         const response = await axios.get(url);
@@ -22,7 +43,7 @@ async function scrapeNotableOccurrences(year) { //async function that scrapes a 
         //array of the occurrences
         const notableOccurrences = [];
         notableOccurrencesList.find('li').each((index, element) => {
-            const notation = $(element).text().trim();
+            const notation = removeBrackets($(element).text().trim());
             notableOccurrences.push(notation);  
         });
 
@@ -34,9 +55,15 @@ async function scrapeNotableOccurrences(year) { //async function that scrapes a 
     }
 }
 
+
+function removeBrackets(text) {
+    return text.replace(/\[\d+\]/g, '');
+}
+
+
 async function scrapeAllSeasons() {
-    const startYear = 1951;
-    const endYear = 2022;
+    const startYear = 1946;
+    const endYear = 1948;
 
     const promises = [];
     for (let year = startYear; year <= endYear; year++) {
@@ -46,17 +73,16 @@ async function scrapeAllSeasons() {
     return Promise.all(promises);
 }
 
-
-
-//EXAMPLE USAGE!!
 scrapeAllSeasons()
     .then(results => {
         results.forEach(({ year, notableOccurrences, error }) => {
             if (error) {
                 console.log(`No data available for ${year}`);
             } else {
-                console.log(`Notable Occurrences for the ${year}–${year + 1} NBA season:`);
-                notableOccurrences.forEach(notation => console.log(notation));
+                console.log("Setting the notable occurrences for the " + year + " - " + (year + 1) + " NBA season...");
+                const docRef = collectionRef.doc(year.toString());
+                docRef.set({ notableOccurrences });
+                console.log("Notable occurrences set for the " + year + " - " + (year + 1) + " NBA season");
             }
         });
     })

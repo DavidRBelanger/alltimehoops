@@ -21,10 +21,6 @@ async function writeData() {
   let champ = "";
   let ROTY = "";
 
-  let all_nba_first_team = [];
-
-  let all_nba_second_team = [];
-
   let year1 = 1951;
 
   let year2 = 2023;
