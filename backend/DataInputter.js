@@ -10,7 +10,7 @@ initializeApp({
 
 const db = getFirestore();
 
-const collectionRef = db.collection('nba_awards');
+const collectionRef = db.collection('nba_champions_mvps');
 
 const readlineSync = require('readline-sync');
 
@@ -33,35 +33,18 @@ async function writeData() {
   for (let i = year1; i <= year2; i++) {
 
     // Collect user input
-    MVP = readlineSync.question("Who was the MVP of the NBA in " + i + "? ");
     fMVP = readlineSync.question("Who was the Finals MVP of the NBA in " + i + "? ");
-    champ = readlineSync.question("Who won the NBA Championship in " + i + "? ");
     ROTY = readlineSync.question("Who was the Rookie of the Year in the NBA in " + i + "? ");
 
-    let player;
-    while (true) {
-      player = readlineSync.question("Enter a player for the All-NBA First Team (or -1 to finish): ");
-      if (player === '-1') break;
-      all_nba_first_team.push(player);
-    }
-    player = "";
-    while (true) {
-      player = readlineSync.question("Enter a player for the All-NBA First Team (or -1 to finish): ");
-      if (player === '-1') break;
-      all_nba_second_team.push(player);
-    }
+    
     // Create document reference
     const docRef = collectionRef.doc(i.toString());
 
     // Use async/await to wait for data writing
     try {
       await docRef.set({
-        MVP: MVP,
         fMVP: fMVP,
-        champ: champ,
-        ROTY: ROTY,
-        all_nba_first_team: all_nba_first_team,
-        all_nba_second_team: all_nba_second_team
+        ROTY: ROTY
       });
       console.log("Data written for year", i);
     } catch (error) {
