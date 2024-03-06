@@ -12,16 +12,15 @@ const db = getFirestore();
 
 const collectionRef = db.collection('nba_champions_mvps');
 
-// Read the JSON file
+
 let rawData = fs.readFileSync('C:/Users/drbx3/Downloads/NBA Finals and MVP.json');
 let data = JSON.parse(rawData);
 
 async function writeData() {
   for (let year in data) {
-    // Create document reference
+    // Create firebase docref
     const docRef = collectionRef.doc(data[year]['Year'].toString());
 
-    // Use async/await to wait for data writing
     try {
       await docRef.set(data[year]);
       console.log("Data written for year", data[year]['Year']);

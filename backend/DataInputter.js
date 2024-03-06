@@ -1,3 +1,7 @@
+/* 
+THIS CODE IS NO LONGER NEEDED, it can be used to manually update information.
+*/
+
 const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
 const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/firestore');
 

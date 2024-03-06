@@ -1,0 +1,21 @@
+:root {
+    --background-darkest: #272727;
+    --background-dark: #242335;
+    --orange: #F15C22;
+    --white: #FFFFFF;
+    --background-light: #2A293D;
+    --gray: #D9DCD6;
+}
+
+
+
+body {
+    font-family: 'Lexend';
+    font-weight: semibold;
+    background-color: var(--background-dark);
+    color: var(--white);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

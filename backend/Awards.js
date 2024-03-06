@@ -2,7 +2,7 @@ const { initializeApp, cert } = require('firebase-admin/app');
 const { getFirestore } = require('firebase-admin/firestore');
 const fs = require('fs');
 
-const serviceAccount = require('C:/Users/drbx3/Documents/Fall 2023-2024/alltimehoops/basketballstats-f03ae-firebase-adminsdk-983h4-6d9d2ff860.json');
+const serviceAccount = require('C:/Users/drbx3/Documents/Github/alltimehoops/basketballstats-f03ae-firebase-adminsdk-983h4-6d9d2ff860.json');
 
 initializeApp({
   credential: cert(serviceAccount)
@@ -19,7 +19,7 @@ let data = JSON.parse(rawData);
 async function writeData() {
   for (let i = 0; i < data.length; i++) {
     if (data[i]['winner'] === "TRUE") {
-      const docRef = collectionRef.doc(data[i]['season'].toString());
+      const docRef = collectionRef.doc((data[i]['season'] - 1).toString());
       let awardData = {};
       awardData[data[i]['award']] = data[i];
       try {

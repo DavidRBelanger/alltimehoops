@@ -1,11 +1,9 @@
-import './App.css';
-
+import './Styles/GlobalStyle.css';
+import Nav from './Components/Nav.js';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>alltimehoops.com</h1>
-      </header>
+      <Nav/>
     </div>
   );
 }
