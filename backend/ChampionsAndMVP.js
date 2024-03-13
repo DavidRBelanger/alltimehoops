@@ -23,7 +23,7 @@ async function writeData() {
 
     try {
       await docRef.set(data[year]);
-      console.log("Data written for year", data[year]['Year']);
+      
     } catch (error) {
       console.error("Error writing document for year", data[year]['Year'], error);
     }

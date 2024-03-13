@@ -10,7 +10,6 @@
 
 
 body {
-    font-family: 'Lexend';
     font-weight: semibold;
     background-color: var(--background-dark);
     color: var(--white);
@@ -18,4 +17,26 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* This applies to all scrollable elements */
+::-webkit-scrollbar {
+    width: 5px; /* Width of the scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: none; /* Color of the track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: var(--orange);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    transition: 0.2s;
+    background: #D93E00; /* Color of the handle when you hover over it */
 }

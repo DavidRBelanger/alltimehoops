@@ -1,0 +1,15 @@
+.notable-occurences {
+    transition: 0.4s;
+    padding: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background-color: var(--background-light);
+    border-radius: 20px;
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.notable-occurences:hover {
+    transition: 0.4s;
+    background-color: #2F2E3F;
+}   

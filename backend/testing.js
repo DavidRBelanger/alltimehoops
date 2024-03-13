@@ -41,10 +41,10 @@ scrapeAllSeasons()
     .then(results => {
         results.forEach(({ year, notableOccurrences, error }) => {
             if (error) {
-                console.log(`No data available for ${year}`);
+                
             } else {
-                console.log(`Notable Occurrences for the ${year}–${year + 1} NBA season:`);
-                notableOccurrences.forEach(notation => console.log(notation));
+                
+                notableOccurrences.forEach(notation => 
             }
         });
     })

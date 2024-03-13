@@ -50,7 +50,7 @@ async function writeData() {
         fMVP: fMVP,
         ROTY: ROTY
       });
-      console.log("Data written for year", i);
+      
     } catch (error) {
       console.error("Error writing document for year", i, error);
     }

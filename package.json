@@ -7,6 +7,10 @@
     "opener": "^1.5.2",
     "prompt-sync": "^4.2.0",
     "puppeteer": "^22.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-loader-spinner": "^6.1.6",
+    "react-spinners": "^0.13.8",
     "readline-sync": "^1.4.10"
   }
 }

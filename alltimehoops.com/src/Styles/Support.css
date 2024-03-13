@@ -1,0 +1,8 @@
+.support {
+    margin-top: 80px;
+}
+
+.support h1 {
+    color: var(--orange);
+    font-size: 40px;
+}

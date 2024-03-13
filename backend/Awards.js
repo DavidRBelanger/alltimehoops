@@ -24,7 +24,7 @@ async function writeData() {
       awardData[data[i]['award']] = data[i];
       try {
         await docRef.set(awardData, { merge: true });
-        console.log("Data written for year", data[i]['season']);
+        
       } catch (error) {
         console.error("Error writing document for year", data[i]['season'], error);
       }

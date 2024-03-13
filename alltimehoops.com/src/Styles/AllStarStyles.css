@@ -1,0 +1,70 @@
+.all-star-tile {
+    position: relative;
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: var(--orange);
+    border-radius: 20px;
+    box-shadow: inset 0 0 4px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    margin-top: 0px;
+    font-size: 10px;
+    min-height: 200px;
+    z-index: 1;
+}
+
+.all-star-tile h1 {
+    text-align: center;
+    font-size: 30px;
+    margin: 0;
+}
+
+.all-star-tile:hover {
+    transition: 0.4s;
+    background-color: #D93E00;
+}
+
+.all-star-tile h2 {
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+}
+
+.all-star-tile p {
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.teams {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.team {
+    flex: 1 0 20%;
+    /* This will create 5 columns. Adjust as needed. */
+    margin: 10px;
+}
+
+.loader-all-star-tile {
+    position: relative;
+    top: 50%;
+    left: 50%;
+}
+
+
+#all-star-loader {
+    all: initial;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+

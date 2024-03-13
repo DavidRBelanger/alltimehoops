@@ -1,0 +1,93 @@
+
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+
+#main-logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+    width: 200px;
+    height: 200px;;
+}
+
+
+#main-title {
+    color: var(--orange);
+    text-decoration: underline;;
+    margin-top: 5px;
+}
+
+
+#main-subtitle {
+    color: var(--lighter);
+    margin-top: 5px;
+}
+
+
+.dropdowns-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+select {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--white);
+    color: black;
+}
+
+form {
+    background-color: var(--orange);
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+
+form input::placeholder {
+    color: white;
+}
+
+form input {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--orange);
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 20px;
+}
+
+
+form input[type="submit"] {
+    transition: 0.4s;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    transition: 0.4s;
+    background-color: var(--background-darkest);
+}
