@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { firestore } from '../firebase';
-import { collection, doc, getDoc } from 'firebase/firestore'; // Import Firestore functions
+import { collection, doc, getDoc } from 'firebase/firestore'; 
 import '../Styles/StandingsStyles.css';
 
 function StandingsTile({ year, setIsLoading }) {

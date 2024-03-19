@@ -1,0 +1,31 @@
+.about-container {
+    margin-top: 100px;
+    text-align: center;
+    width: 600px;
+}
+
+
+
+
+.about-container img {
+    margin: auto;
+}
+
+.about-container {
+
+    table {
+        display: table;
+        width: 100%;
+    }
+    table tr {
+        display: table-cell;
+    }
+    table tr td {
+        display: block;
+    }
+}
+
+.about-container a {
+    color: var(--orange);
+    text-decoration: none;
+}

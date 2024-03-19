@@ -10,7 +10,6 @@ import NotableOccurence from './NotableOccurence.js';
 import StatLeadersTile from './StatLeadersTile.js';
 import AdvancedStatLeadersTile from './AdvancedStatLeadersTile.js';
 import AllStarsTile from './AllStarsTile.js';
-import Loader from './Loader.js';
 import DraftTile from './DraftTile.js';
 import ClipLoader from "react-spinners/ClipLoader";
 import leftArrow from '../Images/left-arrow.png';
@@ -33,6 +32,7 @@ function Year() {
         notableOccurence7: true,
         notableOccurence8: true,
         notableOccurence9: true,
+        notableOccurence10: true,
         advancedStatLeadersTile: true,
         allStarsTile: true,
         draftTile: true,
@@ -72,7 +72,9 @@ function Year() {
             <div id="loader" style={{ visibility: isPageLoading ? 'visible' : 'hidden' }}>
                 <ClipLoader color="var(--orange)" size={50} />
             </div>
-            <Link to={`/year/${parseInt(year) - 1}`} onClick={(e) => parseInt(year) - 1 < VALID_RANGE.start && e.preventDefault()}>
+
+            {/* these lines determines if the year attempted to be accessed is within the valid range */}
+            <Link to={`/year/${parseInt(year) - 1}`} onClick={(e) => parseInt(year) - 1 < VALID_RANGE.start && e.preventDefault()}> 
                 <img id="left-arrow" src={leftArrow} alt="left arrow" style={{ opacity: parseInt(year) - 1 < VALID_RANGE.start ? 0.5 : 1 }} />
             </Link>
             <Link to={`/year/${parseInt(year) + 1}`} onClick={(e) => parseInt(year) + 1 > VALID_RANGE.end && e.preventDefault()}>
@@ -98,6 +100,7 @@ function Year() {
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence4: false }))} occurenceNum={4} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence6: false }))} occurenceNum={6} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence8: false }))} occurenceNum={8} />
+                        <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence10: false }))} occurenceNum={10} />
                     </div>
                     <div className="right-column">
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence1: false }))} occurenceNum={1} />

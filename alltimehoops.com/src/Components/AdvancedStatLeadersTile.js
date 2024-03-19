@@ -15,7 +15,7 @@ function AdvancedStatLeadersTile({ year, setIsLoading }) {
         const docRef = doc(firestore, 'nba_leaders2', year, 'Totals_' + stat + '_Leader', 'Totals_' + stat + '_Leader');       
         const docSnap = await getDoc(docRef);        
         if (docSnap.exists()) {
-          newData.push({ ...docSnap.data(), stat }); // Add the stat to the data
+          newData.push({ ...docSnap.data(), stat });
         } 
       }
       setIsLoading(false);
@@ -24,7 +24,7 @@ function AdvancedStatLeadersTile({ year, setIsLoading }) {
     };
 
     fetchData();
-  }, [year]); // Remove data from the dependency array
+  }, [year]); 
 
   return (
     <div className="stat-leader-tile">
@@ -37,10 +37,10 @@ function AdvancedStatLeadersTile({ year, setIsLoading }) {
           (item.stat === 'FGA') ? 'FGA: ' :
           (item.stat === 'FG3M') ? 'FG3M: ' :
           (item.stat === 'FG3A') ? 'FG3A: ' :
+          (item.stat === 'FG3_PCT') ? 'FG3%: ' : 
           (item.stat === 'FTM') ? 'FTM: ' :
           (item.stat === 'FTA') ? 'FTA: ' :
           (item.stat === 'FT_PCT') ? 'FT%: ' :
-          (item.stat === 'FG3_PCT') ? 'FG3%: ' : 
           (item.stat === 'OREB') ? 'OREB: ' :
           (item.stat === 'DREB') ? 'DREB: ' :
           (item.stat === 'TOV') ? 'TOV: ' :

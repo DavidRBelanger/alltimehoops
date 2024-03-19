@@ -5,8 +5,7 @@ import './Styles/Homepage.css';
 import Nav from './Components/Nav.js';
 import logo from './Images/logo.png';
 import Dropdowns from './Components/Dropdowns.js';
-import Year from './Components/Year'; // Make sure this file exists and has a default export
-import ColoredLine from './Components/ColoredLine.js';
+import Year from './Components/Year';
 import Support from './Support.js';
 import './Styles/404Error.css';
 import About from './About.js';
@@ -21,11 +20,11 @@ function HomepageContent() {
   };
   return (
     <div className="App">
-      <Nav title="Home"/>
+      <Nav title="Home" />
       <img id="main-logo" src={logo} alt="logo" />
       <h1 id="main-title">alltimehoops.com</h1>
       <h3 id="main-subtitle">A History-Focused Year-By-Year NBA Archive</h3>
-      <Dropdowns navigate={navigate}/>
+      <Dropdowns navigate={navigate} />
 
       <h1>OR</h1>
       <form onSubmit={handleFormSubmit}>
@@ -39,7 +38,7 @@ function HomepageContent() {
 const NotFoundPage = () => {
   return (
     <>
-    <Nav title="404: Page Not Found"/>
+      <Nav title="404: Page Not Found" />
       <h1 id="error-title">404: Page Not Found</h1>
     </>
   );

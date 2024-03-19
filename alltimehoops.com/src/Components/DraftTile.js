@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { firestore } from '../firebase';
-import { collection, doc, getDoc } from 'firebase/firestore'; // Import Firestore functions
+import { collection, doc, getDoc } from 'firebase/firestore';
 import '../Styles/DraftStyles.css';
 
 function DraftTile({ year, setIsLoading }) {
@@ -57,7 +57,7 @@ function DraftTile({ year, setIsLoading }) {
                         <tr key={index}>
                             <td>{pick.PLAYER_NAME}</td>
                             <td>{pick.TEAM_NAME}</td>
-                            <td>{pick.OVERALL_PICK === 0 ? 'TP' : pick.OVERALL_PICK}</td>
+                            <td>{pick.OVERALL_PICK === 0 ? 'TP' : pick.OVERALL_PICK}</td> {/* TP = Territorial Pick */ }
                         </tr>
                     ))}
                 </tbody>

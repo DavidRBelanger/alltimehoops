@@ -1,12 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { firestore } from '../firebase';
-import { collection, doc, getDoc } from 'firebase/firestore'; // Import Firestore functions
+import { collection, doc, getDoc } from 'firebase/firestore';
 import '../Styles/StatLeadersStyle.css';
 import Loader from './Loader';
 import { Oval } from 'react-loader-spinner';
 
-function StatLeadersTile({ year , setIsLoading}) {
+function StatLeadersTile({ year, setIsLoading }) {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -21,7 +21,6 @@ function StatLeadersTile({ year , setIsLoading}) {
                     const docSnap = await getDoc(docRef);
 
                     if (docSnap.exists()) {
-                        // Check if the data for this stat and mode has already been fetched
                         if (!newData.some(item => item.stat === stat && item.mode === mode)) {
                             newData.push({ ...docSnap.data(), stat: stat, mode: mode });
                         }
@@ -31,38 +30,40 @@ function StatLeadersTile({ year , setIsLoading}) {
             }
 
             setData(newData);
-            
+
 
         };
 
         fetchData();
-    }, [year]); // Remove data from the dependency array
+    }, [year]);
 
 
     return (
+        //essentially this code will display each stat if the stat exists from the data.
         <div className="stat-leader-tile">
-                <h1>Stat Leaders</h1>
-                {data.map((item, index) => (
-                    <p key={index}>
-                        {item.mode === 'PerGame' ? (
-                            item.stat === 'PTS' ? 'PPG: ' :
-                                item.stat === 'AST' ? 'APG: ' :
-                                    item.stat === 'TRB' ? 'RPG: ' :
-                                        item.stat === 'STL' ? 'SPG: ' :
-                                            item.stat === 'BLK' ? 'BPG: ' : ''
-                        ) : (
-                            item.stat === 'PTS' ? 'Points: ' :
-                                item.stat === 'AST' ? 'Assists: ' :
-                                    item.stat === 'TRB' ? 'Rebounds: ' :
-                                        item.stat === 'STL' ? 'Steals: ' :
-                                            item.stat === 'BLK' ? 'Blocks: ' : ''
-                        )}
-                        {item.name}
-                        {" "}(
-                        {item.value}
-                        )
-                    </p>
-                ))}
+            <h1>Stat Leaders</h1>
+            {data.map((item, index) => (
+                <p key={index}>
+                    {item.mode === 'PerGame' ? (
+                        //not sure why default formatter does this
+                        item.stat === 'PTS' ? 'PPG: ' :
+                            item.stat === 'AST' ? 'APG: ' :
+                                item.stat === 'TRB' ? 'RPG: ' :
+                                    item.stat === 'STL' ? 'SPG: ' :
+                                        item.stat === 'BLK' ? 'BPG: ' : ''
+                    ) : (
+                        item.stat === 'PTS' ? 'Points: ' :
+                            item.stat === 'AST' ? 'Assists: ' :
+                                item.stat === 'TRB' ? 'Rebounds: ' :
+                                    item.stat === 'STL' ? 'Steals: ' :
+                                        item.stat === 'BLK' ? 'Blocks: ' : ''
+                    )}
+                    {item.name}
+                    {" "}(
+                    {item.value}
+                    )
+                </p>
+            ))}
         </div>
     );
 }

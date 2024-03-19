@@ -7,7 +7,7 @@ function Dropdowns() {
   const handleSelectChange = (event) => {
     const year = event.target.value;
     if (year) {
-      // Redirect to the selected year's page
+      
       navigate('/year/' + year);
     }
   };

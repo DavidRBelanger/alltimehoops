@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { firestore } from '../firebase';
-import { collection, doc, getDoc } from 'firebase/firestore'; // Import Firestore functions
+import { collection, doc, getDoc } from 'firebase/firestore';
 import '../Styles/AllStarStyles.css';
 
 function AllStarsTile({ year, setIsLoading }) {
@@ -10,7 +10,7 @@ function AllStarsTile({ year, setIsLoading }) {
 
     useEffect(() => {
         const fetchData = async () => {
-            setIsLoading(true); // Set loading to true at the start of each fetch
+            setIsLoading(true); 
             const docRef = doc(collection(firestore, 'nba_allstars'), year);
             const docSnap = await getDoc(docRef);
 
@@ -19,7 +19,7 @@ function AllStarsTile({ year, setIsLoading }) {
                 setPlayers(data.players);
                 setIsLoading(false);
             } else {
-                // Handle the case where no data is returned
+               
                 setIsLoading(false);
             }
         };
@@ -27,7 +27,7 @@ function AllStarsTile({ year, setIsLoading }) {
         fetchData();
     }, [year]);
 
-    // Get unique team names from the players array
+
     const teams = [...new Set(players.map(player => player.team))];
 
     return (
