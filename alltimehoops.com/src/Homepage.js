@@ -8,7 +8,8 @@ import Dropdowns from './Components/Dropdowns.js';
 import Year from './Components/Year'; // Make sure this file exists and has a default export
 import ColoredLine from './Components/ColoredLine.js';
 import Support from './Support.js';
-
+import './Styles/404Error.css';
+import About from './About.js';
 function HomepageContent() {
   const navigate = useNavigate();
   const handleFormSubmit = (event) => {
@@ -35,6 +36,15 @@ function HomepageContent() {
   );
 }
 
+const NotFoundPage = () => {
+  return (
+    <>
+    <Nav title="404: Page Not Found"/>
+      <h1 id="error-title">404: Page Not Found</h1>
+    </>
+  );
+}
+
 
 function App() {
   return (
@@ -43,6 +53,8 @@ function App() {
         <Route path="/" element={<HomepageContent />} />
         <Route path="/year/:year" element={<Year />} />
         <Route path="/support" element={<Support />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
   );

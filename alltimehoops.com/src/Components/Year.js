@@ -17,6 +17,7 @@ import leftArrow from '../Images/left-arrow.png';
 import rightArrow from '../Images/right-arrow.png';
 import { Link } from 'react-router-dom';
 import { VALID_RANGE } from './Constants.js';
+import StandingsTile from './StandingsTile.js';
 function Year() {
     const { year } = useParams();
     const [isLoading, setIsLoading] = useState({
@@ -35,6 +36,7 @@ function Year() {
         advancedStatLeadersTile: true,
         allStarsTile: true,
         draftTile: true,
+        standingsTile: true
     });
 
     const [isPageLoading, setIsPageLoading] = useState(true);
@@ -91,9 +93,9 @@ function Year() {
                     <div className="left-column">
                         <StatLeadersTile year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, statLeadersTile: false }))} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence0: false }))} occurenceNum={0} />
+                        <DraftTile year={(parseInt(year) + 1).toString()} setIsLoading={() => setIsLoading(prev => ({ ...prev, draftTile: false }))} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence2: false }))} occurenceNum={2} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence4: false }))} occurenceNum={4} />
-                        <DraftTile year={(parseInt(year) + 1).toString()} setIsLoading={() => setIsLoading(prev => ({ ...prev, draftTile: false }))} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence6: false }))} occurenceNum={6} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence8: false }))} occurenceNum={8} />
                     </div>
@@ -103,6 +105,7 @@ function Year() {
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence3: false }))} occurenceNum={3} />
                         <AllStarsTile year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, allStarsTile: false }))} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence5: false }))} occurenceNum={5} />
+                        <StandingsTile year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, standingsTile: false }))} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence7: false }))} occurenceNum={7} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence9: false }))} occurenceNum={9} />
                     </div>

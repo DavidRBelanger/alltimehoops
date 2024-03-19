@@ -15,7 +15,7 @@ body {
 #main-logo {
     display: flex;
     justify-content: center;
-    margin-top: 150px;
+    margin-top: 100px;
     width: 200px;
     height: 200px;;
 }
@@ -51,6 +51,7 @@ select {
 }
 
 form {
+    transition: 0.4s;
     background-color: var(--orange);
     border: none;
     border-radius: 20px;
@@ -59,15 +60,20 @@ form {
     text-align: center;
 }
 
+form:hover {
+    transition: 0.4s;
+    background-color: #D93E00;
+}
+
 form input::placeholder {
-    color: white;
+    color: lightgrey;
 }
 
 form input {
     margin: 5px;
     padding: 5px;
     border-radius: 5px;
-    background-color: var(--orange);
+    background: none;
     color: white;
     border: none;
     outline: none;

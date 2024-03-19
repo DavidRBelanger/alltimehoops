@@ -1,8 +1,86 @@
 .support {
-    margin-top: 80px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    margin-top: 40%;
+}
+
+.support form {
+    background: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+}
+
+.support .input-group input, .support textarea {
+    box-sizing: border-box;
+    /* Rest of your styles */
+}
+
+/* Rest of your CSS */
+
+.support .input-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.support input {
+    background-color: var(--background-darkest);
+    border: white 1px solid;
+    font-size: 12px;
+    padding: 10px 40px 10px 5px;
+}
+
+.support input[type="text"] {
+    width: 35%;
+}
+
+.support input[type="email"] {
+    width: 60%;
+}
+
+.support textarea {
+    font-family: 'Roboto', sans-serif;
+    margin: 4px;
+    border-radius: 7px;
+    background-color: var(--background-darkest);
+    border: white 1px solid;
+    font-size: 12px;
+    padding: 5px 0px 10px 5px;
+    color: white;
+    resize: none;
+    height: 100px;
 }
 
 .support h1 {
-    color: var(--orange);
-    font-size: 40px;
+    text-align: center;
+}
+
+.support p {
+    text-align: center;
+}
+/* Rest of your CSS */
+
+.support ::placeholder {
+    color: lightgray;
+}
+
+.support button {
+    transition: 0.4s;
+    background-color: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.support button:hover {
+    transition: 0.4s;
+    background-color: lightgreen;
+    color: black;
 }
