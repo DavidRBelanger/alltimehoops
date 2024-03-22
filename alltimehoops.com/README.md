@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# AllTimeHoops.com - A History-Focused Year-By-Year NBA Archive
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+AllTimeHoops.com is a web application that provides a year-by-year archive of NBA history. The application is built using React and uses Firestore for data storage.
 
-In the project directory, you can run:
+The application is composed of several main components:
 
-### `npm start`
+- **Nav**: This component displays the navigation bar of the application. It includes links to the home page, "Graphs", "Support", and "About" pages.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **HomepageContent**: This is the main component of the application. It displays the homepage, which includes a form for the user to enter a season and navigate to the page for that season. It also includes a Dropdowns component that allows the user to select a season from a dropdown menu.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Year**: This component fetches and displays NBA data for a given year. It includes several tiles (AwardsTile, StatLeadersTile, etc.) for different types of data.
 
-### `npm test`
+- **NotableOccurence**: This component fetches and displays a notable occurrence from the NBA for a given year.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **StandingsTile**: This component fetches and displays NBA standings for a given year.
 
-### `npm run build`
+- **StatLeadersTile**: This component fetches and displays NBA stat leaders for a given year.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Support**: This component displays the support page of the application.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **About**: This component displays the about page of the application.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **NotFoundPage**: This component displays a 404 error page when the user navigates to an invalid URL.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The application uses the react-router-dom library to define routes. The "/" route renders the HomepageContent component. The "/year/:year" route renders the Year component. The "/support" route renders the Support component. The "/about" route renders the About component. Any other route renders the NotFoundPage component.
