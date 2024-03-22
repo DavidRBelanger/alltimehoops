@@ -1,3 +1,8 @@
+
+import '../Styles/GlobalStyle.css';
+import '../Styles/Nav.css';
+import logo from '../Images/logo.png';
+import { Link } from 'react-router-dom';
 /**
  * Last Verified: 3/21/2024 - David Belanger
  * Authors: David Belanger
@@ -13,11 +18,6 @@
  * - The title passed as a prop.
  * - A list of links to the "Graphs", "Support", and "About" pages.
  */
-
-import '../Styles/GlobalStyle.css';
-import '../Styles/Nav.css';
-import logo from '../Images/logo.png';
-import { Link } from 'react-router-dom';
 
 function Nav( { title }) {
     return <>

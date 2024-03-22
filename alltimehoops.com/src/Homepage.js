@@ -1,3 +1,14 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import './Styles/Homepage.css';
+import Nav from './Components/Nav.js';
+import logo from './Images/logo.png';
+import Dropdowns from './Components/Dropdowns.js';
+import Year from './Components/Year';
+import Support from './Support.js';
+import './Styles/404Error.css';
+import About from './About.js';
 /**
  * Last Verified: 3/21/2024 - David Belanger
  * Authors: David Belanger
@@ -24,17 +35,6 @@
  * - It contains a Nav component with the title "404: Page Not Found" and an error message.
  */
 
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import './Styles/Homepage.css';
-import Nav from './Components/Nav.js';
-import logo from './Images/logo.png';
-import Dropdowns from './Components/Dropdowns.js';
-import Year from './Components/Year';
-import Support from './Support.js';
-import './Styles/404Error.css';
-import About from './About.js';
 function HomepageContent() {
   const navigate = useNavigate();
   const handleFormSubmit = (event) => {

@@ -1,3 +1,8 @@
+import React, { useState, useEffect } from 'react';
+import { firestore } from '../firebase';
+import { collection, doc, getDoc } from 'firebase/firestore';
+import '../Styles/AllStarStyles.css';
+
 /**
  * Last Verified: 3/21/2024 - David Belanger
  * Authors: David Belanger
@@ -24,10 +29,7 @@
  * For each team, it displays a list of players who are part of that team.
  */
 
-import React, { useState, useEffect } from 'react';
-import { firestore } from '../firebase';
-import { collection, doc, getDoc } from 'firebase/firestore';
-import '../Styles/AllStarStyles.css';
+
 
 function AllStarsTile({ year, setIsLoading }) {
     const [players, setPlayers] = useState([]);

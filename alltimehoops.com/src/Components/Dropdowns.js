@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+import { VALID_RANGE } from './Constants.js';
 /**
  * Last Verified: 3/21/2024 - David Belanger
  * Authors: David Belanger
@@ -16,8 +18,6 @@
  * Each dropdown contains an option for each year in that decade. The options are disabled if the year is outside the valid range.
  */
 
-import { useNavigate } from 'react-router-dom';
-import { VALID_RANGE } from './Constants.js';
 function Dropdowns() {
   const navigate = useNavigate();
   const decades = ['1950', '1960', '1970', '1980', '1990', '2000', '2010', '2020'];

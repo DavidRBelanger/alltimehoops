@@ -1,3 +1,8 @@
+import React, { useState, useEffect } from 'react';
+import { firestore } from '../firebase';
+import { collection, doc, getDoc } from 'firebase/firestore';
+import '../Styles/AwardsTile.css';
+
 /**
  * Last Verified: 3/21/2024 - David Belanger
  * Authors: David Belanger
@@ -25,10 +30,7 @@
  * If the award did not exist for the given year, it displays 'Award Did Not Exist'.
  */
 
-import React, { useState, useEffect } from 'react';
-import { firestore } from '../firebase';
-import { collection, doc, getDoc } from 'firebase/firestore';
-import '../Styles/AwardsTile.css';
+
 
 function AwardsTile({ year, setIsLoading }) {
     const [data, setData] = useState(null);

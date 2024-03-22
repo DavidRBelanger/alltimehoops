@@ -1,3 +1,9 @@
+import React, { useState, useEffect } from 'react';
+import { firestore } from '../firebase';
+import { collection, doc, getDoc } from 'firebase/firestore';
+import '../Styles/StatLeadersStyle.css';
+import Loader from './Loader';
+import { Oval } from 'react-loader-spinner';
 /**
  * Last Verified: 3/21/2024 - David Belanger
  * Authors: David Belanger
@@ -25,12 +31,6 @@
  * Each stat leader is displayed with the stat, the player's name, and the player's value for that stat.
  */
 
-import React, { useState, useEffect } from 'react';
-import { firestore } from '../firebase';
-import { collection, doc, getDoc } from 'firebase/firestore';
-import '../Styles/StatLeadersStyle.css';
-import Loader from './Loader';
-import { Oval } from 'react-loader-spinner';
 
 function StatLeadersTile({ year, setIsLoading }) {
     const [data, setData] = useState([]);

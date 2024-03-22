@@ -1,3 +1,23 @@
+import React, { useState, useEffect } from 'react';
+
+import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import Nav from './Nav.js';
+import TitleCard from './TitleCard.js';
+import '../Styles/YearStyles.css';
+import AwardsTile from './AwardsTile.js';
+import ColoredLine from './ColoredLine.js';
+import NotableOccurence from './NotableOccurence.js';
+import StatLeadersTile from './StatLeadersTile.js';
+import AdvancedStatLeadersTile from './AdvancedStatLeadersTile.js';
+import AllStarsTile from './AllStarsTile.js';
+import DraftTile from './DraftTile.js';
+import ClipLoader from "react-spinners/ClipLoader";
+import leftArrow from '../Images/left-arrow.png';
+import rightArrow from '../Images/right-arrow.png';
+import { Link } from 'react-router-dom';
+import { VALID_RANGE } from './Constants.js';
+import StandingsTile from './StandingsTile.js';
 /**
  * Last Verified: 3/21/2024 - David Belanger
  * Authors: David Belanger
@@ -24,26 +44,6 @@
  *   Each tile is passed the year and a function to set its loading state to false when it has finished loading.
  */
 
-import React, { useState, useEffect } from 'react';
-
-import { useNavigate } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-import Nav from './Nav.js';
-import TitleCard from './TitleCard.js';
-import '../Styles/YearStyles.css';
-import AwardsTile from './AwardsTile.js';
-import ColoredLine from './ColoredLine.js';
-import NotableOccurence from './NotableOccurence.js';
-import StatLeadersTile from './StatLeadersTile.js';
-import AdvancedStatLeadersTile from './AdvancedStatLeadersTile.js';
-import AllStarsTile from './AllStarsTile.js';
-import DraftTile from './DraftTile.js';
-import ClipLoader from "react-spinners/ClipLoader";
-import leftArrow from '../Images/left-arrow.png';
-import rightArrow from '../Images/right-arrow.png';
-import { Link } from 'react-router-dom';
-import { VALID_RANGE } from './Constants.js';
-import StandingsTile from './StandingsTile.js';
 function Year() {
     const { year } = useParams();
     const [isLoading, setIsLoading] = useState({

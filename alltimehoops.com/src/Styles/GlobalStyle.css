@@ -19,24 +19,24 @@ body {
     box-sizing: border-box;
 }
 
-/* This applies to all scrollable elements */
 ::-webkit-scrollbar {
-    width: 5px; /* Width of the scrollbar */
+    width: 10px; 
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: none; /* Color of the track */
+    background: none; 
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
+    transition: 0.4s;
     border-radius: 10px;
     background: var(--orange);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    transition: 0.2s;
-    background: #D93E00; /* Color of the handle when you hover over it */
+    transition: 0.4s;
+    background: #D93E00; 
 }

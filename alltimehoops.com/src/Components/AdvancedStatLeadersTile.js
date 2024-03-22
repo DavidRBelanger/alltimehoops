@@ -1,3 +1,7 @@
+import React, { useState, useEffect } from 'react';
+import { firestore } from '../firebase';
+import { collection, doc, getDoc } from 'firebase/firestore';
+import '../Styles/StatLeadersStyle.css';
 /**
  * 
  * Last Verified: 3/21/2024 - David Belanger
@@ -28,10 +32,7 @@
  */
 
 
-import React, { useState, useEffect } from 'react';
-import { firestore } from '../firebase';
-import { collection, doc, getDoc } from 'firebase/firestore';
-import '../Styles/StatLeadersStyle.css';
+
 
 function AdvancedStatLeadersTile({ year, setIsLoading }) {
   const [data, setData] = useState([]);

@@ -1,3 +1,8 @@
+
+import React, { useState, useEffect } from 'react';
+import { firestore } from '../firebase';
+import { collection, doc, getDoc } from 'firebase/firestore'; 
+import '../Styles/StandingsStyles.css';
 /**
  * Last Verified: 3/21/2024 - David Belanger
  * Authors: David Belanger
@@ -31,11 +36,6 @@
  * The component renders a div with the class "standings-tile". It displays a title, buttons to switch between the conferences, and a table of standings.
  * The standings table displays the team name, record, and rank for each team.
  */
-
-import React, { useState, useEffect } from 'react';
-import { firestore } from '../firebase';
-import { collection, doc, getDoc } from 'firebase/firestore'; 
-import '../Styles/StandingsStyles.css';
 
 function StandingsTile({ year, setIsLoading }) {
     const [easternStandings, setEasternStandings] = useState([]);

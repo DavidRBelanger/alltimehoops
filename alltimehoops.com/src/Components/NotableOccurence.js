@@ -1,3 +1,7 @@
+import { useEffect, useState } from 'react';
+import { doc, getDoc, collection } from 'firebase/firestore';
+import { firestore } from '../firebase';
+import '../Styles/NotableOccurences.css';
 /**
  * Last Verified: 3/21/2024 - David Belanger
  * Authors: David Belanger
@@ -25,10 +29,6 @@
  * If the data is not yet fetched or the occurrence does not exist, it returns null and does not render anything.
  */
 
-import { useEffect, useState } from 'react';
-import { doc, getDoc, collection } from 'firebase/firestore';
-import { firestore } from '../firebase';
-import '../Styles/NotableOccurences.css';
 
 function NotableOccurence({ year, occurenceNum, setIsLoading }) {
   const [data, setData] = useState(null);

@@ -1,3 +1,7 @@
+import React, { useState, useEffect } from 'react';
+import { firestore } from '../firebase';
+import { collection, doc, getDoc } from 'firebase/firestore';
+import '../Styles/DraftStyles.css';
 /**
  * Last Verified: 3/21/2024 - David Belanger
  * Authors: David Belanger
@@ -29,12 +33,12 @@
  * Render:
  * The component renders a div with the class "draft-tile". It displays a title, a list of draft picks, and buttons to navigate through the list.
  * For each draft pick, it displays the player name, team name, and the overall pick.
+ *
+ * 
+ * TODO: Move buttons to bottom, see how it looks. check if it messes with min-size
+ * 
  */
 
-import React, { useState, useEffect } from 'react';
-import { firestore } from '../firebase';
-import { collection, doc, getDoc } from 'firebase/firestore';
-import '../Styles/DraftStyles.css';
 
 function DraftTile({ year, setIsLoading }) {
     const [picks, setPicks] = useState([]);

@@ -16,12 +16,18 @@
 
 
 .nav h1 {
+    transition: 0.4s;
     font-family: 'Lexend', sans-serif;
     font-size: 25px;
     text-decoration: underline;
     color: var(--orange);
     top: 50%;
     margin-left: 5px;
+}
+
+.nav h1:hover {
+    transition: 0.4s;
+    color: var(--white);
 }
 
 
@@ -58,6 +64,12 @@
 }
 
 .nav ul li a {
+    transition: 0.4s;
     color: white;
     text-decoration: none;
+}
+
+.nav ul li a:hover {
+    transition: 0.4s;
+    color: var(--orange);
 }
