@@ -1,6 +1,5 @@
 {
   "firestore": {
-    "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
@@ -9,6 +8,12 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   }
 }
