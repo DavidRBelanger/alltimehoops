@@ -1,3 +1,33 @@
+/**
+ * 
+ * Last Verified: 3/21/2024 - David Belanger
+ * Authors: David Belanger
+ * 
+ * 
+ * AdvancedStatLeadersTile is a React component that fetches and displays advanced statistics for NBA leaders.
+ *
+ * Props:
+ * - year: The year for which the statistics should be fetched.
+ * - setIsLoading: A function to set the loading state of the parent component.
+ *
+ * State:
+ * - data: An array to store the fetched statistics data. It's initially an empty array.
+ *
+ * The component uses the useEffect hook to fetch the data when it mounts and whenever the `year` prop changes.
+ * It calls an asynchronous function `fetchData`:
+ *
+ * fetchData Function:
+ * This function fetches the data for various statistics from Firestore. The statistics are defined in the `stats` array.
+ * For each statistic, it constructs a document reference and fetches the document.
+ * If the document exists, it adds the document data and the statistic name to the `newData` array.
+ * After fetching all the data, it sets the loading state to false and updates the `data` state with `newData`.
+ *
+ * Render:
+ * The component renders a div with the class "stat-leader-tile". It displays a title and a list of statistics.
+ * For each item in the `data` array, it displays a paragraph with the statistic name and the leader's name and value for that statistic.
+ */
+
+
 import React, { useState, useEffect } from 'react';
 import { firestore } from '../firebase';
 import { collection, doc, getDoc } from 'firebase/firestore';

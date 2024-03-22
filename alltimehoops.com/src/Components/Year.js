@@ -1,4 +1,31 @@
+/**
+ * Last Verified: 3/21/2024 - David Belanger
+ * Authors: David Belanger
+ *
+ * Year is a React component that fetches and displays NBA data for a given year.
+ *
+ * Props: None
+ *
+ * State:
+ * - isLoading: An object to store the loading state of each child component. It's initially set to true for all components.
+ * - isPageLoading: A boolean to store the loading state of the entire page. It's initially set to true.
+ *
+ * The component uses the useParams hook to get the year from the URL.
+ * It uses the useNavigate hook to navigate to different pages.
+ *
+ * useEffect Hooks:
+ * - The first useEffect hook sets isPageLoading to false when all child components have finished loading.
+ * - The second useEffect hook navigates to '/year/invalid' if the year from the URL is not a valid year.
+ *
+ * Render:
+ * - If the year is 'invalid', it renders a Nav component with the title "Invalid" and a message for the user.
+ * - Otherwise, it renders a loader while the page is loading and then the NBA data for the given year.
+ *   This includes a Nav component, a TitleCard component, and various tiles (AwardsTile, StatLeadersTile, etc.) for different types of data.
+ *   Each tile is passed the year and a function to set its loading state to false when it has finished loading.
+ */
+
 import React, { useState, useEffect } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import Nav from './Nav.js';

@@ -1,3 +1,29 @@
+/**
+ * Last Verified: 3/21/2024 - David Belanger
+ * Authors: David Belanger
+ *
+ * StatLeadersTile is a React component that fetches and displays NBA stat leaders for a given year.
+ *
+ * Props:
+ * - year: The year for which the stat leaders should be fetched.
+ * - setIsLoading: A function to set the loading state of the parent component.
+ *
+ * State:
+ * - data: An array to store the fetched stat leaders data. It's initially an empty array.
+ *
+ * The component uses the useEffect hook to fetch the data when it mounts and whenever the `year` prop changes.
+ * It calls an asynchronous function `fetchData`:
+ *
+ * fetchData Function:
+ * This function fetches the data for the stat leaders from Firestore. It constructs a document reference and fetches the document.
+ * If the document exists and the data does not already exist in `newData`, it adds the document data to `newData`.
+ * After fetching the data for each stat and mode, it sets the loading state to false.
+ * Finally, it sets the `data` state to `newData`.
+ *
+ * Render:
+ * The component renders a div with the class "stat-leader-tile". It displays a title and a list of stat leaders.
+ * Each stat leader is displayed with the stat, the player's name, and the player's value for that stat.
+ */
 
 import React, { useState, useEffect } from 'react';
 import { firestore } from '../firebase';

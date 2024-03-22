@@ -1,3 +1,29 @@
+/**
+ * Last Verified: 3/21/2024 - David Belanger
+ * Authors: David Belanger
+ *
+ * This file contains the main App component and the HomepageContent component.
+ *
+ * App Component:
+ * - This is the main component of the application.
+ * - It uses the react-router-dom library to define the application's routes.
+ * - The "/" route renders the HomepageContent component.
+ * - The "/year/:year" route renders the Year component.
+ * - The "/support" route renders the Support component.
+ * - The "/about" route renders the About component.
+ * - Any other route renders the NotFoundPage component.
+ *
+ * HomepageContent Component:
+ * - This component displays the homepage of the application.
+ * - It uses the useNavigate hook from react-router-dom to navigate to different pages.
+ * - It contains a form that allows the user to enter a season and navigate to the page for that season.
+ * - It also contains a Dropdowns component that allows the user to select a season from a dropdown menu.
+ *
+ * NotFoundPage Component:
+ * - This component displays a 404 error page.
+ * - It contains a Nav component with the title "404: Page Not Found" and an error message.
+ */
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';

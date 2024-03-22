@@ -1,3 +1,29 @@
+/**
+ * Last Verified: 3/21/2024 - David Belanger
+ * Authors: David Belanger
+ *
+ * AllStarsTile is a React component that fetches and displays a list of NBA All Stars for a given year.
+ *
+ * Props:
+ * - year: The year for which the All Stars should be fetched.
+ * - setIsLoading: A function to set the loading state of the parent component.
+ *
+ * State:
+ * - players: An array to store the fetched players data. It's initially an empty array.
+ *
+ * The component uses the useEffect hook to fetch the data when it mounts and whenever the `year` prop changes.
+ * It calls an asynchronous function `fetchData`:
+ *
+ * fetchData Function:
+ * This function fetches the data for the All Stars from Firestore. It constructs a document reference and fetches the document.
+ * If the document exists, it adds the document data to the `players` state.
+ * After fetching the data, it sets the loading state to false.
+ *
+ * Render:
+ * The component renders a div with the class "all-star-tile". It displays a title and a list of teams.
+ * For each team, it displays a list of players who are part of that team.
+ */
+
 import React, { useState, useEffect } from 'react';
 import { firestore } from '../firebase';
 import { collection, doc, getDoc } from 'firebase/firestore';
