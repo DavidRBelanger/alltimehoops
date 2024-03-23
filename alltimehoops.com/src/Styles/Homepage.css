@@ -104,3 +104,17 @@ form input[type="submit"]:hover {
     transition: 0.4s;
     background-color: var(--background-darkest);
 }
+
+@media screen and (min-width: 667px) and (max-width: 1600px) {
+    #main-logo {
+        margin-top: 150px;
+    }
+}
+
+@media screen and (max-width: 667px) {
+    #main-logo {
+        margin-top: 100px;
+        width: 50px;
+        height: 50px;
+    }
+}

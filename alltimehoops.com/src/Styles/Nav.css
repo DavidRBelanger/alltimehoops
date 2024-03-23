@@ -73,3 +73,19 @@
     transition: 0.4s;
     color: var(--orange);
 }
+
+
+@media screen and (max-width: 666px){
+    .nav h1 {
+        visibility: hidden;
+        position: absolute;
+    }
+
+    .nav h2 {
+        position: relative;
+        left: 0;
+        transform: none;
+        margin-left: 10px;
+    }
+
+}

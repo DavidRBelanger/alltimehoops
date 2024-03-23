@@ -5,3 +5,9 @@
     font-size: 26px;
 }
 
+@media screen and (max-width: 666px) {
+    .title-card {
+        visibility: hidden;
+        position: absolute;
+    }
+}
