@@ -84,3 +84,19 @@
     background-color: lightgreen;
     color: black;
 }
+
+@media screen and (min-width: 1920px) {
+    .support {
+        font-size: 20px;
+    }
+
+    .support input, .support textarea, .support button{
+        font-size: 20px;
+        border-radius: 7px;
+    }
+
+    .support form {
+        margin: auto;
+    }
+
+}

@@ -36,3 +36,11 @@
     margin-top: auto;
     margin-bottom: auto;
 }
+
+
+@media screen and (min-width: 1920px) {
+    .stat-leader-tile {
+        font-size: 15px;
+    }
+    
+}

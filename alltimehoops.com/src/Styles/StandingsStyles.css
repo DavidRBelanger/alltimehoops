@@ -96,3 +96,19 @@
     width: 10%;
     text-align: right;
 }
+
+@media only screen and (min-width: 1920px) {
+    .standings-tile {
+        font-size: 20px;
+    }
+    .standings-tile h1 {
+        font-size: 35px;
+    }
+    .standings-tile h2 {
+        font-size: 25px;
+    }
+
+    .standings-tile button {
+        font-size: 30px;
+    }
+}

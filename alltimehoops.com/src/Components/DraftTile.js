@@ -63,6 +63,7 @@ function DraftTile({ year, setIsLoading }) {
 
         fetchData();
         setIsLoading(false);
+        setCurrentIndex(0);
 
     }, [year]);
 

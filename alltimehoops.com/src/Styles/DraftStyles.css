@@ -92,3 +92,14 @@
     width: 10%;
     text-align: right;
 }
+
+@media screen and (min-width: 1920px) {
+    .draft-tile {
+        font-size: 20px;
+        min-height: 515px;
+    }
+    
+    .draft-tile button {
+        font-size: 30px;
+    }
+}

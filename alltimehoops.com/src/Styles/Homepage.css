@@ -118,3 +118,30 @@ form input[type="submit"]:hover {
         height: 50px;
     }
 }
+
+@media screen and (min-width: 1921px) {
+    #main-logo {
+        margin-top: 300px;
+        width: 300px;
+        height: 300px;
+    }
+    #main-title, #main-subtitle {
+        font-size: 50px;
+    }
+
+    select {
+        font-size: 40px;
+        border-radius: 20px;
+    }
+
+    form input {
+        font-size: 40px;
+        border-radius: 20px;
+        padding: 20px;
+    }
+
+    form input[type="submit"] {
+        font-size: 40px;
+        border-radius: 30px;
+    }
+}
