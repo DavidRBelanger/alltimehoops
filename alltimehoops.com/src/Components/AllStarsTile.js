@@ -33,6 +33,8 @@ import '../Styles/AllStarStyles.css';
 
 function AllStarsTile({ year, setIsLoading }) {
     const [players, setPlayers] = useState([]);
+    const [teams, setTeams] = useState([]);
+    const [selectedTeam, setSelectedTeam] = useState('');
 
     year = (parseInt(year) + 1).toString();
 
@@ -41,40 +43,42 @@ function AllStarsTile({ year, setIsLoading }) {
             setIsLoading(true); 
             const docRef = doc(collection(firestore, 'nba_allstars'), year);
             const docSnap = await getDoc(docRef);
-
+    
             if (docSnap.exists()) {
                 const data = docSnap.data();
                 setPlayers(data.players);
+                const uniqueTeams = [...new Set(data.players.map(player => player.team))];
+                setTeams(uniqueTeams);
+                setSelectedTeam(uniqueTeams[0]); // Set the selected team here
                 setIsLoading(false);
             } else {
-               
                 setIsLoading(false);
             }
         };
-
+    
         fetchData();
     }, [year]);
 
+    const handleTeamChange = (team) => {
+        setSelectedTeam(team);
+    };
 
-    const teams = [...new Set(players.map(player => player.team))];
+    const displayedPlayers = players.filter(player => player.team === selectedTeam);
 
     return (
         <div className="all-star-tile">
             <h1>All Stars</h1>
-            <div className="teams">
+            <div className="standings-buttons">
                 {teams.map((team, index) => (
-                    <div key={index} className={`team team${index + 1}`}>
-                        <h2>{team}</h2>
-                        {players.filter(player => player.team === team).map((player, index) => {
-                            return (
-                                <p key={index}>{player.player}</p>
-                            );
-                        })}
-                    </div>
+                    <button key={index} onClick={() => handleTeamChange(team)} disabled={team === selectedTeam}>{team}</button>
+                ))}
+            </div>
+            <div className="teams">
+                {displayedPlayers.map((player, index) => (
+                    <p key={index}>{player.player}</p>
                 ))}
             </div>
         </div>
     );
 }
-
 export default AllStarsTile;

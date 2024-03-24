@@ -18,6 +18,8 @@ import rightArrow from '../Images/right-arrow.png';
 import { Link } from 'react-router-dom';
 import { VALID_RANGE } from './Constants.js';
 import StandingsTile from './StandingsTile.js';
+import Champions from './Champions.js';
+
 /**
  * Last Verified: 3/21/2024 - David Belanger
  * Authors: David Belanger
@@ -63,7 +65,8 @@ function Year() {
         advancedStatLeadersTile: true,
         allStarsTile: true,
         draftTile: true,
-        standingsTile: true
+        standingsTile: true,
+        champions: true
     });
 
     const [isPageLoading, setIsPageLoading] = useState(true);
@@ -130,6 +133,7 @@ function Year() {
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence10: false }))} occurenceNum={10} />
                     </div>
                     <div className="right-column">
+                        <Champions year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, champions: false }))} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence1: false }))} occurenceNum={1} />
                         <AdvancedStatLeadersTile setIsLoading={() => setIsLoading(prev => ({ ...prev, advancedStatLeadersTile: false }))} year={year} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence3: false }))} occurenceNum={3} />

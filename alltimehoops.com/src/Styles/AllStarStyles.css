@@ -16,47 +16,33 @@
     z-index: 1;
 }
 
-.all-star-tile h1 {
-    text-align: center;
-    font-size: 30px;
-    margin: 0;
-}
-
-.all-star-tile:hover {
-    transition: 0.4s;
-    background-color: #D93E00;
-}
-
-.all-star-tile h2 {
-    margin: 0;
-    font-size: 15px;
-    text-align: center;
-}
-
 .all-star-tile p {
     margin: 0;
     padding: 0;
-    font-size: 10px;
+    font-size: 1.5em;
     font-weight: bold;
-    text-align: center;
+
 }
 
-.teams {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+.all-star-tile button {
+    transition: 0.4s;
+    display: inline-block;
+    background-color: var(--background-dark);   
+    color: white;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
 }
 
-.team {
-    flex: 1 0 20%;
-    /* This will create 5 columns. Adjust as needed. */
-    margin: 10px;
+.all-star-tile button:hover {
+    transition: 0.4s;
+    background-color: #3B3957;
+
 }
 
-.loader-all-star-tile {
-    position: relative;
-    top: 50%;
-    left: 50%;
+.all-star-tile button:disabled {
+    background-color: #CCCCCC;
+    cursor: not-allowed;
 }
 
 
@@ -66,6 +52,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.all-star-tile button {
+    margin-bottom: 20px;
 }
 
 @media screen and (min-width: 1920px) {
@@ -80,5 +70,7 @@
             font-size: 25px;
         }
     }
-    
+    .all-star-tile button {
+        font-size: 30px;
+    }
 }
