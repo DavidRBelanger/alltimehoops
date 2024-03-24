@@ -71,6 +71,10 @@ function StandingsTile({ year, setIsLoading }) {
     const displayedStandings = displayEast ? easternStandings : westernStandings;
     const conferenceName = displayEast ? 'Eastern' : 'Western';
 
+    if (displayedStandings.length === 0 || !displayedStandings) {
+        return null;
+    }
+
     return (
         <div className="standings-tile">
             <h1>{year.substring(0, 4)}-{parseInt(year.substring(2,4))+1} NBA Standings</h1>

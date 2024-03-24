@@ -19,11 +19,17 @@ function Champions({ year, setIsLoading }) {
         fetchData();
     }, [year]);
 
+    const flipResult = (result) => {
+        const [first, second] = result.split('–');
+        return parseInt(first) < parseInt(second) ? `${second}-${first}` : result;
+    };
+
+
     return (
         <div className="champion-tile">
             {data && (
                 <p>
-                    In the {data["Year"]-1}-{data["Year"]} NBA Finals, the {data["NBA Champion"]} {data["Final Sweep ?"].toLowerCase() === 'true' ? `swept the ${data["NBA Vice-Champion"]} 4-0` : `beat the ${data["NBA Vice-Champion"]} ${data["Result"]}`}.
+                    In the {data["Year"]}-{data["Year"]+1} NBA Finals, the {data["NBA Champion"]} {data["Final Sweep ?"].toLowerCase() === 'true' ? `swept the ${data["NBA Vice-Champion"]} 4-0` : `beat the ${data["NBA Vice-Champion"]} ${flipResult(data["Result"])}`}.
                 </p>
             )}
         </div>

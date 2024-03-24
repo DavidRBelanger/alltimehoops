@@ -69,9 +69,12 @@ function AllStarsTile({ year, setIsLoading }) {
         <div className="all-star-tile">
             <h1>All Stars</h1>
             <div className="standings-buttons">
-                {teams.map((team, index) => (
-                    <button key={index} onClick={() => handleTeamChange(team)} disabled={team === selectedTeam}>{team}</button>
-                ))}
+                {teams.map((team, index) => {
+                    const teamName = team.replace('Team ', ''); 
+                    return (
+                        <button key={index} onClick={() => handleTeamChange(team)} disabled={team === selectedTeam}>{teamName}</button>
+                    );
+                })}
             </div>
             <div className="teams">
                 {displayedPlayers.map((player, index) => (

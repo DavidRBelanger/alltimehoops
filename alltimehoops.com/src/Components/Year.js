@@ -104,7 +104,7 @@ function Year() {
             </div>
 
             {/* these lines determines if the year attempted to be accessed is within the valid range */}
-            <Link to={`/year/${parseInt(year) - 1}`} onClick={(e) => parseInt(year) - 1 < VALID_RANGE.start && e.preventDefault()}> 
+            <Link to={`/year/${parseInt(year) - 1}`} onClick={(e) => parseInt(year) - 1 < VALID_RANGE.start && e.preventDefault()}>
                 <img id="left-arrow" src={leftArrow} alt="left arrow" style={{ opacity: parseInt(year) - 1 < VALID_RANGE.start ? 0.5 : 1 }} />
             </Link>
             <Link to={`/year/${parseInt(year) + 1}`} onClick={(e) => parseInt(year) + 1 > VALID_RANGE.end && e.preventDefault()}>
@@ -123,19 +123,19 @@ function Year() {
                 <ColoredLine color="white"></ColoredLine>
                 <div className="bottom-columns-container">
                     <div className="left-column">
+                        <Champions year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, champions: false }))} />
+                        <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence1: false }))} occurenceNum={1} />
                         <StatLeadersTile year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, statLeadersTile: false }))} />
-                        <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence0: false }))} occurenceNum={0} />
-                        <DraftTile year={(parseInt(year) + 1).toString()} setIsLoading={() => setIsLoading(prev => ({ ...prev, draftTile: false }))} />
+                        <AdvancedStatLeadersTile setIsLoading={() => setIsLoading(prev => ({ ...prev, advancedStatLeadersTile: false }))} year={year} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence2: false }))} occurenceNum={2} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence4: false }))} occurenceNum={4} />
+                        <DraftTile year={(parseInt(year) + 1).toString()} setIsLoading={() => setIsLoading(prev => ({ ...prev, draftTile: false }))} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence6: false }))} occurenceNum={6} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence8: false }))} occurenceNum={8} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence10: false }))} occurenceNum={10} />
                     </div>
                     <div className="right-column">
-                        <Champions year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, champions: false }))} />
-                        <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence1: false }))} occurenceNum={1} />
-                        <AdvancedStatLeadersTile setIsLoading={() => setIsLoading(prev => ({ ...prev, advancedStatLeadersTile: false }))} year={year} />
+                        <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence0: false }))} occurenceNum={0} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence3: false }))} occurenceNum={3} />
                         <AllStarsTile year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, allStarsTile: false }))} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence5: false }))} occurenceNum={5} />
