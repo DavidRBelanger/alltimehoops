@@ -102,30 +102,61 @@
 
 @media screen and (max-width: 666px) {
 
+    body {
+        padding-bottom: 60px;
+    }
+
+    .nav h2 {
+        margin: initial;
+        position: fixed;
+        bottom: 15px; 
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        font-size: 30px;
+        z-index: 999999999;
+    }
 
     .top-columns-container,
     .bottom-columns-container {
         flex-direction: column;
-        width: 70%;
+        width: 90%;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 0;
+    }
+
+    .awards-tile h1 {
+        text-align: center;
     }
 
     .left-column, .right-column {
         margin: 0;
     }
 
-    #left-arrow {
-        height: 40px;
-        margin-left: 7px;
+    #arrow-container {
         position: fixed;
-        top: 90%;
+        bottom: 0;
+        width: 100%;
+        background-color: var(--background-darkest);
+        z-index: 999;
     }
-    #right-arrow {
-        height: 40px;
-        margin-right: 7px;
-        position: fixed;
-        top: 90%;
+    
+    #arrow-container #left-arrow, 
+    #arrow-container #right-arrow {
+        all: initial;
+        height: 40px; 
+        width: 40px;
+        margin: 10px 0;
+    }
+    
+    #arrow-container #left-arrow {
+        margin-left: 10px;
+    }
+    
+    #arrow-container #right-arrow {
+        position: absolute;
+        right: 10px;
     }
 }
 
