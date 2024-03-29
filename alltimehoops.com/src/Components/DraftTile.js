@@ -56,7 +56,7 @@ function DraftTile({ year, setIsLoading }) {
                 const data = docSnap.data();
                 setPicks(data.picks);
             } else {
-                
+                console.log('No such document!');
             }
             
         };
