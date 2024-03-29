@@ -108,6 +108,8 @@ function Year() {
                 <Link to={`/year/${parseInt(year) - 1}`} onClick={(e) => parseInt(year) - 1 < VALID_RANGE.start && e.preventDefault()}>
                     <img id="left-arrow" src={leftArrow} alt="left arrow" style={{ opacity: parseInt(year) - 1 < VALID_RANGE.start ? 0.5 : 1 }} />
                 </Link>
+
+
                 <Link to={`/year/${parseInt(year) + 1}`} onClick={(e) => parseInt(year) + 1 > VALID_RANGE.end && e.preventDefault()}>
                     <img id="right-arrow" src={rightArrow} alt="right arrow" style={{ opacity: parseInt(year) + 1 > VALID_RANGE.end ? 0.5 : 1 }} />
                 </Link>

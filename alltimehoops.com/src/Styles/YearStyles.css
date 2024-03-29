@@ -106,17 +106,6 @@
         padding-bottom: 60px;
     }
 
-    .nav h2 {
-        margin: initial;
-        position: fixed;
-        bottom: 15px; 
-        left: 50%;
-        transform: translateX(-50%);
-        width: auto;
-        font-size: 30px;
-        z-index: 999999999;
-    }
-
     .top-columns-container,
     .bottom-columns-container {
         flex-direction: column;
@@ -136,6 +125,7 @@
 
     #arrow-container {
         position: fixed;
+        overflow-y: hidden;
         bottom: 0;
         width: 100%;
         background-color: var(--background-darkest);
