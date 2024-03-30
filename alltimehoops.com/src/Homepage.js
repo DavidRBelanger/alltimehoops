@@ -9,6 +9,7 @@ import Year from './Components/Year';
 import Support from './Support.js';
 import './Styles/404Error.css';
 import About from './About.js';
+import ShotChart from './ShotChart.js';
 /**
  * Last Verified: 3/21/2024 - David Belanger
  * Authors: David Belanger
@@ -81,6 +82,7 @@ function App() {
         <Route path="/year/:year" element={<Year />} />
         <Route path="/support" element={<Support />} />
         <Route path="/about" element={<About />} />
+        <Route path="shotchart" element={<ShotChart />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>

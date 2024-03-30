@@ -1,3 +1,11 @@
+# THIS FILE IS NOT GOING TO BE USED. 
+# This file is used to get shot chart data from the NBA API and upload it to Firestore.
+# ShotChartDetail will be used instead.
+
+
+
+
+
 from nba_api.stats.endpoints import shotchartleaguewide
 from firebase_admin import credentials, firestore
 import firebase_admin
