@@ -18,6 +18,7 @@
 
 .all-star-tle h1 {
     margin-top: 0px;
+    text-align: center;
 }
 
 .all-star-tile p {
@@ -33,10 +34,12 @@
     display: inline-block;
     background-color: var(--background-dark);   
     color: white;
-    border-radius: 7px;
+    border-radius: 20px;
     border: none;
     cursor: pointer;
-    font-size: 5px;
+    font-size: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .all-star-tile button:hover {
@@ -76,6 +79,16 @@
         }
     }
     .all-star-tile button {
-        font-size: 30px;
+        font-size: 25px;    
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media screen and (max-width: 666px) {
+    .all-star-tile h1 {
+        font-size: 25px;
+        text-align: center;
+        margin-bottom: 0;
     }
 }

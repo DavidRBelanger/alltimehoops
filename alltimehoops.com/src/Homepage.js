@@ -51,9 +51,11 @@ function HomepageContent() {
       <img id="main-logo" src={logo} alt="logo" />
       <h1 id="main-title">alltimehoops.com</h1>
       <h3 id="main-subtitle">A History-Focused Year-By-Year NBA Archive</h3>
-      <Dropdowns navigate={navigate} />
-
+      {/*<Dropdowns navigate={navigate} /> //removed dropdowns, looks better across all devices. 
+      
       <h1>OR</h1>
+      */
+      }
       <form onSubmit={handleFormSubmit}>
         <input type="text" id="search" placeholder="Enter an NBA Season"></input>
         <input type="submit" value="Search"></input>

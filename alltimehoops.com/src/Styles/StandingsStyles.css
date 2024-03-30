@@ -32,7 +32,7 @@
 .standings-tile p {
     margin: 0;
     padding: 0;
-    font-size: 1.5em;
+    font-size: 40px;
     font-weight: bold;
 }
 
@@ -54,7 +54,7 @@
     display: inline-block;
     background-color: var(--background-dark);   
     color: white;
-    border-radius: 7px;
+    border-radius: 20px;
     border: none;
     cursor: pointer;
 }
@@ -62,7 +62,6 @@
 .standings-tile button:hover {
     transition: 0.4s;
     background-color: #3B3957;
-
 }
 
 .standings-tile button:disabled {

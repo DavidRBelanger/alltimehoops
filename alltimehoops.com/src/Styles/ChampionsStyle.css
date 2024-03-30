@@ -44,3 +44,9 @@
     }
     
 }
+
+@media screen and (max-width: 666px) {
+    .champion-tile {
+        font-size: 15px;
+    }
+}
