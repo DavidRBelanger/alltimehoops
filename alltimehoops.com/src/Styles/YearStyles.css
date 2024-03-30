@@ -101,18 +101,26 @@
 }
 
 @media screen and (max-width: 666px) {
-
+    html, body {
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
     body {
         padding-bottom: 60px;
     }
 
     .top-columns-container,
     .bottom-columns-container {
-        flex-direction: column;
+        flex-direction: row;
         width: 90%;
         margin-left: auto;
         margin-right: auto;
         margin-top: 0;
+    }
+
+
+    .bottom-columns-container {
+        flex-direction: column;
     }
 
     .awards-tile h1 {
@@ -130,6 +138,7 @@
         width: 100%;
         background-color: var(--background-darkest);
         z-index: 999;
+        -webkit-overflow-scrolling: touch;
     }
     
     #arrow-container #left-arrow, 

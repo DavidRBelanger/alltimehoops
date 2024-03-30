@@ -115,6 +115,13 @@ form input[type="submit"]:hover {
     #main-logo {
         margin-top: 50%;
     }
+
+    .App h3 {
+        text-align: center;
+        margin: auto;
+        width: 80%;
+        margin-bottom: 20px;
+    }
 }
 
 @media screen and (min-width: 1921px) {

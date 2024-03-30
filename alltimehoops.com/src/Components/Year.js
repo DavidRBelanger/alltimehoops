@@ -46,6 +46,9 @@ import Champions from './Champions.js';
  *   Each tile is passed the year and a function to set its loading state to false when it has finished loading.
  */
 
+
+
+
 function Year() {
     const { year } = useParams();
     const [isLoading, setIsLoading] = useState({
@@ -73,6 +76,8 @@ function Year() {
     const navigate = useNavigate();
 
     useEffect(() => {
+        window.scrollBy(0,1);
+        window.scrollBy(0,-1);
         if (!Object.values(isLoading).includes(true)) {
             setIsPageLoading(false);
         }
