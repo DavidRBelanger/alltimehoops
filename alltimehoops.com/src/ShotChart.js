@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { firestore } from './firebase';
 import { collection, doc, getDoc } from 'firebase/firestore';
-import { ScatterChart, CartesianGrid, XAxis, YAxis, Tooltip, Scatter } from 'recharts';
+import { ResponsiveContainer, ScatterChart, CartesianGrid, XAxis, YAxis, Tooltip, Scatter } from 'recharts';
 import Nav from './Components/Nav.js';
-import { scaleLog, scaleSqrt } from 'd3-scale';
+import { scaleLog, scaleSqrt, scaleLinear } from 'd3-scale';
 import './Styles/ShotChart.css';
+import courtImage from './Images/court.png'
 
 const ShotChart = () => {
   const [shots, setShots] = useState([]);
-  let year = 1996;
+  const [year, setYear] = useState(1996); // useState for year
+
   useEffect(() => {
     const fetchData = async () => {
-      const seasonDoc = doc(collection(firestore, 'nba_shots'), year.toString());
+      const seasonDoc = doc(collection(firestore, 'nba_shots2'), year.toString());
       const docSnap = await getDoc(seasonDoc);
       if (docSnap.exists()) {
         setShots(docSnap.data().shots);
@@ -21,36 +23,78 @@ const ShotChart = () => {
     };
 
     fetchData();
-  }, []);
+  }, [year]); // year added to dependency array
+
 
   const maxShotCount = Math.max(...shots.map(shot => shot.SHOT_COUNT));
-  const colorScale = scaleLog().domain([1, maxShotCount]).range(['#8884d8', '#444499']);
   const sizeScale = scaleLog().domain([1, maxShotCount]).range([0.1, 10]);
+  // Create a linear color scale based on the order of shots
+  // Define your base color in HSL format
+  // Define your base color in HSL format
 
   const CustomShape = (props) => {
-    const { cx, cy, payload } = props;
+    const { cx, cy, payload, index } = props;
     const cellRadius = sizeScale(payload.SHOT_COUNT);
 
-    return <circle cx={cx} cy={cy} r={cellRadius} fill={colorScale(payload.SHOT_COUNT)} />;
+    // Limit the shot count to 50 for color scaling
+    const limitedShotCount = payload.SHOT_COUNT;
+
+    // Create a linear color scale from black to bright orange
+    const colorScale = scaleLinear()
+      .domain([0, limitedShotCount])
+      .range(["gray", "orange"]);
+
+    return (
+      <circle
+        cx={cx}
+        cy={cy}
+        r={cellRadius}
+        fill={colorScale(limitedShotCount)}
+        stroke="black"
+        strokeWidth=".1"
+      />
+    );
+  };
+
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      const data = payload[0].payload;
+      const distance = (Math.sqrt(Math.pow(data.LOC_X, 2) + Math.pow(data.LOC_Y, 2)) / 10); //nba database gives it in tenths of a foot for some dumb reason
+      return (
+        <div className="custom-tooltip">
+          <p className="label">Distance to Hoop: {distance.toFixed(2)} ft.</p>
+        </div>
+      );
+    }
+    return null;
   };
 
   return (
     <>
       <Nav title="Shot Chart"></Nav>
       <div className="ShotChart">
-
+        <h2>Selected Year: {year}-{(year + 1).toString().substring(2, 4)}</h2> {/* Add this line */}
         <div className="slidecontainer">
-          <input type="range" min="1" max="100" value="50" class="slider" id="myRange" />
+          <input
+            type="range"
+            min="1996"
+            max="2022"
+            value={year}
+            className="slider"
+            id="myRange"
+            onChange={(e) => setYear(Number(e.target.value))}
+          />
         </div>
         <div className="chart-container">
-
-          <ScatterChart width={400} height={400} margin={{ top: 20, right: 20, bottom: 20, left: 60 }}>
-            <CartesianGrid />
-            <XAxis dataKey={'LOC_X'} type="number" name='x' domain={[-300, 300]} />
-            <YAxis dataKey={'LOC_Y'} type="number" name='y' domain={[-300, 300]} />
-            <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-            <Scatter name='Shots' data={shots} shape={<CustomShape />} />
-          </ScatterChart>
+          <ResponsiveContainer width="100%" aspect={1.5}>
+            <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+              <CartesianGrid stroke="none" />
+              <XAxis dataKey={'LOC_X'} type="number" name='x' domain={[-300, 300]} hide={true} />
+              <YAxis dataKey={'LOC_Y'} type="number" name='y' domain={[-100, 300]} hide={true} />
+              <Tooltip content={<CustomTooltip />} cursor={{ strokeDasharray: '3 3' }} />
+              <Scatter name='Shots' data={shots} shape={<CustomShape />} />
+            </ScatterChart>
+          </ResponsiveContainer>
         </div>
       </div>
     </>
