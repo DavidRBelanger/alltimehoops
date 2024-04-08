@@ -9,7 +9,7 @@ import courtImage from './Images/court.png'
 
 const ShotChart = () => {
   const [shots, setShots] = useState([]);
-  const [year, setYear] = useState(1996); // useState for year
+  const [year, setYear] = useState(2022); // useState for year
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,7 +51,7 @@ const ShotChart = () => {
         r={cellRadius}
         fill={colorScale(limitedShotCount)}
         stroke="black"
-        strokeWidth=".1"
+        strokeWidth="1"
       />
     );
   };
@@ -69,6 +69,24 @@ const ShotChart = () => {
     return null;
   };
 
+
+  const viewportWidth = window.innerWidth;
+
+  useEffect(() => {
+    const handleResize = () => {
+      setChartWidth(window.innerWidth < 640 ? 400 : 600);
+      setChartHeight(window.innerWidth < 640 ? 250 : 400);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Clean up event listener on component unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const [chartWidth, setChartWidth] = useState(window.innerWidth < 640 ? 400 : 600);
+  const [chartHeight, setChartHeight] = useState(window.innerWidth < 640 ? 250 : 400);
+
   return (
     <>
       <Nav title="Shot Chart"></Nav>
@@ -77,7 +95,7 @@ const ShotChart = () => {
         <div className="slidecontainer">
           <input
             type="range"
-            min="1996"
+            min="1997"
             max="2022"
             value={year}
             className="slider"
@@ -85,16 +103,19 @@ const ShotChart = () => {
             onChange={(e) => setYear(Number(e.target.value))}
           />
         </div>
-        <div className="chart-container">
-          <ResponsiveContainer width="100%" aspect={1.5}>
-            <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-              <CartesianGrid stroke="none" />
-              <XAxis dataKey={'LOC_X'} type="number" name='x' domain={[-300, 300]} hide={true} />
-              <YAxis dataKey={'LOC_Y'} type="number" name='y' domain={[-100, 300]} hide={true} />
-              <Tooltip content={<CustomTooltip />} cursor={{ strokeDasharray: '3 3' }} />
-              <Scatter name='Shots' data={shots} shape={<CustomShape />} />
-            </ScatterChart>
-          </ResponsiveContainer>
+        <div className="chart-container" style={{ width: '600px', height: '400px' }}>
+          <ScatterChart width={chartWidth} height={chartHeight} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+            <CartesianGrid stroke="none" />
+            <XAxis dataKey={'LOC_X'} type="number" name='x' domain={[-300, 300]} hide={true} />
+            <YAxis dataKey={'LOC_Y'} type="number" name='y' domain={[-100, 300]} hide={true} />
+            <Tooltip content={<CustomTooltip />} cursor={{ strokeDasharray: '3 3' }} />
+            <Scatter name='Shots' data={shots} shape={<CustomShape />} />
+          </ScatterChart>
+        </div>
+        <div className="note-container">
+
+        <p>The 200 most attempted shots in the {year}-{(year + 1).toString().substring(2, 4)} season,</p>
+        <p>given a 6" margin. Does not include Free Throw Attempts.</p>
         </div>
       </div>
     </>

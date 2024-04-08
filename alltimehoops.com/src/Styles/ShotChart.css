@@ -16,7 +16,10 @@ body, html {
     margin-bottom: 20px;
 }
 .ShotChart .chart-container {
-    display: flex;
+    background-image: url('../Images/court.png');
+    background-repeat: no-repeat;
+    background-size: 470px;
+    background-position: 48% 190%; 
     justify-content: center;
     width: 40vw;
     margin-left: auto;
@@ -42,18 +45,27 @@ body, html {
     transition: background .15s ease-in-out;
 }
 
+
+.ShotChart p {
+    text-align: center;
+}
 .ShotChart input[type=range]:active::-webkit-slider-thumb {
     background-color: #f00; /* Change to the color you want when active */
 }
-@media screen and (max-width: 1366px) {
+@media screen and (max-width: 640px) {
     .ShotChart {
         margin-top: 100px;
     }
 
     .ShotChart .chart-container {
-        width: 90vw;
-        border: none;
-        box-shadow: none;
-        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        background-size: 285px;
+        background-position: 49.5% -35%; 
+    }
+
+    .ShotChart .note-container {
+        margin-top: -100px;
+        font-size: 8px;
     }
 }
