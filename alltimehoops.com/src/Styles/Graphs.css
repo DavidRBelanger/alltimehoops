@@ -1,0 +1,53 @@
+.graph-container {
+    margin-top: 100px;
+    margin-bottom: 200px;
+}
+
+
+.graph-tile-container{
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+
+}
+.graphs-tile {
+    transition: 0.4s;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.2);
+    background-color: var(--background-dark);
+    text-decoration:none;
+    img {
+        width: 100%;
+    }
+    h2 {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 0px;
+        color: white;
+        text-decoration: none;
+    }
+
+    a:visited, a:hover, a:focus, a{
+        text-decoration: none;
+        color: #000;
+    }
+
+}
+
+.graphs-tile:hover {
+    transition: 0.4s;
+    transform: scale(1.08);
+}
+
+
+@media screen and (max-width: 750px) {
+    .graph-tile-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    .graphs-tile {
+        width: 150px;
+        height: 150px;
+    }
+    
+}
