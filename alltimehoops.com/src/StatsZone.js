@@ -1,12 +1,12 @@
 import Nav from './Components/Nav.js';
-import './Styles/Graphs.css';
-import shotChart from './Images/Graphs/shotchart.png';
+import './Styles/StatsZone.css';
+import shotChart from './Images/StatsZone/shotchart.png';
 import { Link } from 'react-router-dom';
-function Graphs() {
+function StatsZone() {
     return (
-        <div className="graph-container">
-            <Nav title="Graphs" />
-            <div className="graph-tile-container">
+        <div className="stats-zone-container">
+            <Nav title="Stats Zone" />
+            <div className="stat-tile-container">
                 <Tile
                     title="Shot Chart"
                     image={shotChart}
@@ -27,7 +27,7 @@ function Graphs() {
 
 function Tile({ title, image, link }) {
     return (
-        <div className="graphs-tile">
+        <div className="StatsZone-tile">
         
             <Link to={link}>
                 <img src={image} alt={title} />
@@ -37,4 +37,4 @@ function Tile({ title, image, link }) {
     );
 }
 
-export default Graphs;
+export default StatsZone;

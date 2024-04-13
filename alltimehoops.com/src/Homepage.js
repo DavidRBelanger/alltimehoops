@@ -10,7 +10,9 @@ import Support from './Support.js';
 import './Styles/404Error.css';
 import About from './About.js';
 import ShotChart from './ShotChart.js';
-import Graphs from './Graphs.js';
+import StatsZone from './StatsZone.js';
+import ColoredLine from './Components/ColoredLine.js';
+import { Link } from 'react-router-dom';
 /**
  * Last Verified: 3/21/2024 - David Belanger
  * Authors: David Belanger
@@ -51,16 +53,24 @@ function HomepageContent() {
       <Nav title="Home" />
       <img id="main-logo" src={logo} alt="logo" />
       <h1 id="main-title">alltimehoops.com</h1>
-      <h3 id="main-subtitle">A History-Focused Year-By-Year NBA Archive</h3>
-      {/*<Dropdowns navigate={navigate} /> //removed dropdowns, looks better across all devices. 
-      
-      <h1>OR</h1>
-      */
-      }
+      <h3 id="main-subtitle">NBA History</h3>
+      <h4 id="main-description">Year By Year Encylopedia</h4>
       <form onSubmit={handleFormSubmit}>
         <input type="text" id="search" placeholder="Enter an NBA Season"></input>
         <input type="submit" value="Search"></input>
       </form>
+      <div className="separator">
+
+        <ColoredLine id="separator" color="white" />
+      </div>
+      <div className="zone-container">
+
+        <h2>Stats Zone</h2>
+        <p>Stats and Graphs throughout NBA History</p>
+        <button>
+          <Link to="/statszone" id="stat-zone-link">Go to Stats Zone → </Link>
+        </button>
+      </div>
     </div>
   );
 }
@@ -83,8 +93,8 @@ function App() {
         <Route path="/year/:year" element={<Year />} />
         <Route path="/support" element={<Support />} />
         <Route path="/about" element={<About />} />
-        <Route path="shotchart" element={<ShotChart />} />
-        <Route path="graphs" element={<Graphs />}/>
+        <Route path="/shotchart" element={<ShotChart />} />
+        <Route path="/statszone" element={<StatsZone />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>

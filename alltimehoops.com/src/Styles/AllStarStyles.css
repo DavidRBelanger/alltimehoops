@@ -57,7 +57,6 @@
     margin-bottom: 10px;
 }
 .standings-buttons button {
-    transition: 0.4s;
     display: inline-block;
     background-color: var(--background-dark);   
     color: white;
@@ -67,6 +66,12 @@
     font-size: 25px;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.all-star-tile:hover {
+    transition: 0.4s;
+    background-color: #D93E00;
+
 }
 
 .all-star-tile button:hover {

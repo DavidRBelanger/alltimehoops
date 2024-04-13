@@ -1,16 +1,12 @@
-.graph-container {
+
+.stat-tile-container{
     margin-top: 100px;
-    margin-bottom: 200px;
-}
-
-
-.graph-tile-container{
     display: inline-grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
 
 }
-.graphs-tile {
+.StatsZone-tile {
     transition: 0.4s;
     width: 200px;
     height: 200px;
@@ -35,17 +31,17 @@
 
 }
 
-.graphs-tile:hover {
+.StatsZone-tile:hover {
     transition: 0.4s;
     transform: scale(1.08);
 }
 
 
 @media screen and (max-width: 750px) {
-    .graph-tile-container {
+    .stat-tile-container {
         grid-template-columns: 1fr 1fr;
     }
-    .graphs-tile {
+    .StatsZone-tile {
         width: 150px;
         height: 150px;
     }

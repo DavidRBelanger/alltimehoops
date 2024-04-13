@@ -32,7 +32,7 @@ function Nav( { title }) {
             <h2>{title}</h2>
 
             <ul>
-                <li><Link to ="/graphs">Graphs</Link></li>
+                <li><Link to ="/statszone">Stats Zone</Link></li>
                 <li><Link to ="/support">Support</Link></li>
                 <li><Link to ="/about">About</Link></li>
             </ul>
