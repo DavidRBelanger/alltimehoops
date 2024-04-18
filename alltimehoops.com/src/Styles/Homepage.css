@@ -1,199 +1,111 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color: var(--background);
+}
+
 .App {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
-
-body {
+.App .main-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    padding: 20px;
 }
 
-
-#main-logo {
-    display: flex;
-    justify-content: center;
-    margin-top: 250px;
+.App #main-logo {
+    margin-top: 100px;
     width: 200px;
     height: 200px;
-    ;
 }
 
-
-#main-title {
+.App #main-title {
     color: var(--orange);
     text-decoration: underline;
-    ;
     margin-top: 5px;
+    margin-bottom: 0px;
 }
 
-
-#main-subtitle {
-    color: var(--lighter);
-    margin-top: 5px;
-}
-
-
-.dropdowns-container {
+.App .buttons-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 20px;
 }
 
-
-select {
-    transition: 0.4s;
-    margin: 5px;
-    padding: 5px;
-    border-radius: 5px;
+.App form {
     background-color: var(--orange);
-    color: white;
-}
-
-select:hover {
-    transition: 0.4s;
-    background-color: #D93E00;
-
-}
-
-form {
-    transition: 0.4s;
-    background-color: var(--orange);
-    border: none;
-    border-radius: 20px;
-    font-size: 20px;
-    color: white;
-    text-align: center;
-}
-
-form:hover {
-    transition: 0.4s;
-    background-color: #D93E00;
-}
-
-form input::placeholder {
-    color: lightgrey;
-}
-
-form input {
-    margin: 5px;
-    padding: 5px;
-    border-radius: 5px;
-    background: none;
-    color: white;
-    border: none;
-    outline: none;
-    font-size: 20px;
-}
-
-
-form input[type="submit"] {
-    transition: 0.4s;
-    margin: 5px;
     padding: 10px;
-    border-radius: 20px;
-    background-color: black;
+    margin: 10px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.App form input {
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+.App form input:focus {
+    outline: none;
+}
+
+.App form input::placeholder {
+    color: white;
+}
+
+.App form input[type="submit"] {
+    background-color: var(--background-dark);
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.App button {
+    background-color: var(--orange);
     color: white;
     border: none;
-    outline: none;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 40px;
+}
+
+.App button:hover {
     cursor: pointer;
 }
 
-form input[type="submit"]:hover {
-    transition: 0.4s;
-    background-color: var(--background-darkest);
-}
-
-
-.separator {
-    width: 100%;
-    margin-top: 30px;
-}
-
-.App h4 {
-    
-}
-
-
-.zone-container {
-    text-align: center;
-
-    button {
-        transition: 0.4s;
-        margin: 10px;
-        padding: 20px;
-        border-radius: 20px;
-        background-color: var(--orange);
-        color: white;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        #stat-zone-link {
-            text-decoration: none;
-            color: white;
-            font-size: 40px;
-        }
-    }
-
-    button:hover {
-        transition: 0.4s;
-        background-color: #D93E00;
-    }
-
-    h2 {
-        font-size: 40px;
-    }
-
-    p {
-        font-size: 30px;
-    }
-}
 @media screen and (min-width: 667px) and (max-width: 1600px) {
-    #main-logo {
+    .App #main-logo {
         margin-top: 150px;
     }
 }
 
 @media screen and (max-width: 667px) {
-    #main-logo {
+    .App #main-logo {
         margin-top: 50%;
     }
 
-    .App h3 {
-        text-align: center;
-        margin: auto;
-        width: 80%;
-        margin-bottom: 20px;
+    .App input[type="text"] {
+        width: 69%;
+    }
+
+    .App button {
+        font-size: 16px;
     }
 }
 
-@media screen and (min-width: 1921px) {
-    #main-logo {
+@media screen and (min-width: 1920px) {
+    .App #main-logo {
         margin-top: 300px;
         width: 300px;
         height: 300px;
-    }
-
-    #main-title,
-    #main-subtitle {
-        font-size: 50px;
-    }
-
-    select {
-        font-size: 40px;
-        border-radius: 20px;
-    }
-
-    form input {
-        font-size: 40px;
-        border-radius: 20px;
-        padding: 20px;
-    }
-
-    form input[type="submit"] {
-        font-size: 40px;
-        border-radius: 30px;
     }
 }

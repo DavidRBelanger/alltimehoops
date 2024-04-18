@@ -79,6 +79,7 @@
     .nav h1 {
         visibility: hidden;
         position: absolute;
+        font-size: 20px;
     }
 
     .nav h2 {
@@ -86,6 +87,7 @@
         left: 0;
         transform: none;
         margin-left: 10px;
+        font-size: 20px;
     }
 
 }

@@ -7,7 +7,7 @@
 
 }
 .StatsZone-tile {
-    transition: 0.4s;
+    transition: 0.2s;
     width: 200px;
     height: 200px;
     box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.2);
@@ -32,7 +32,7 @@
 }
 
 .StatsZone-tile:hover {
-    transition: 0.4s;
+    transition: 0.2s;
     transform: scale(1.08);
 }
 

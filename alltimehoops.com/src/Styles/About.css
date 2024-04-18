@@ -2,6 +2,10 @@
     margin-top: 100px;
     text-align: center;
     width: 600px;
+
+    img {
+        height: 200px;
+    }
 }
 
 
@@ -29,4 +33,13 @@
 .about-container a {
     color: var(--orange);
     text-decoration: none;
+}
+
+
+@media screen and (max-width: 750px) {
+    .about-container {
+        width: 80%;
+        margin: auto;
+        margin-top: 100px;
+    }
 }
