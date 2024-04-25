@@ -63,7 +63,7 @@ body {
 
 .App form input[type="submit"] {
     background-color: var(--background-dark);
-    font-size: 16px;
+    font-size: 17px;
     cursor: pointer;
     border-radius: 5px;
 }
@@ -94,11 +94,12 @@ body {
     }
 
     .App input[type="text"] {
-        width: 69%;
+        width: 62%;
     }
 
     .App button {
-        font-size: 16px;
+        font-size: 14px;
+        white-space:nowrap;
     }
 }
 

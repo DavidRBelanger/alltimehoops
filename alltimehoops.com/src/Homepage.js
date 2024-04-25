@@ -11,6 +11,8 @@ import About from './About.js';
 import ShotChart from './ShotChart.js';
 import StatsZone from './StatsZone.js';
 import { Link } from 'react-router-dom';
+import DraftTool from './DraftTool.js';
+
 
 /**
  * Last Verified: 3/21/2024 - David Belanger
@@ -90,6 +92,7 @@ function App() {
         <Route path="/shotchart" element={<ShotChart />} />
         <Route path="/statszone" element={<StatsZone />} />
         <Route path="*" element={<NotFoundPage />} />
+        <Route path="/drafttool" element={<DraftTool />} />
       </Routes>
     </Router>
   );
