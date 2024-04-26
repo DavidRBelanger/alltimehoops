@@ -1,0 +1,81 @@
+
+.draft-tool-container {
+    width: 80vw;
+    margin: auto;
+    margin-top: 100px;
+    
+}
+
+.draft-configuration-container {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+
+}
+
+.draft-tool-container input[type="range"] {
+    width: 50%;
+}
+
+.draft-board-container {
+    overflow: scroll;
+    min-width: 80vw;
+
+}
+.draft-tool-container table {
+    border-spacing: 10px;
+    margin: auto;
+}
+
+.draft-tool-container td, .draft-tool-container th {
+    height: 100px;
+    width: 200px;
+    min-width: 200px;
+    max-height: 100px;
+
+
+}
+
+.draft-tool-container td {
+    background-color: var(--background-darkest);
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 1px black;
+    overflow: scroll;
+}
+
+.draft-board-container input {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--orange);
+    outline: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    color: white;
+}
+.draft-board-container input::placeholder {
+    color: white;
+}
+.draft-tool-container input[type='number']::-webkit-inner-spin-button,
+.draft-tool-container input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.filtered-player-list {
+    max-height: 100px;
+    overflow: scroll;
+}
+
+.draft-tool-container td::-webkit-scrollbar,
+.draft-board-container::-webkit-scrollbar,
+.filtered-player-list::-webkit-scrollbar {
+    display: none;
+}
+
+.draft-tool-container td,
+.draft-board-container,
+.filtered-player-list {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}

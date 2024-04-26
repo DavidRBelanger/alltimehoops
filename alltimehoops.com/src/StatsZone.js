@@ -1,6 +1,6 @@
 import Nav from './Components/Nav.js';
 import './Styles/StatsZone.css';
-import shotChart from './Images/StatsZone/shotchart.png';
+import shotChart from './Images/StatsZone/shotchart.png'
 import { Link } from 'react-router-dom';
 function StatsZone() {
     return (
@@ -11,7 +11,11 @@ function StatsZone() {
                     title="Shot Chart"
                     image={shotChart}
                     link="/shotchart" />
-                <Tile/>
+                <Tile
+                    title="Draft Tool"
+                    image={shotChart}
+                    link="/drafttool" />
+                />
                 <Tile/>
                 <Tile/>
                 <Tile/>

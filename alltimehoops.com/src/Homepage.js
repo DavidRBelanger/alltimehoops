@@ -11,6 +11,8 @@ import About from './About.js';
 import ShotChart from './ShotChart.js';
 import StatsZone from './StatsZone.js';
 import { Link } from 'react-router-dom';
+import DraftTool from './DraftTool.js';
+
 
 function HomepageContent() {
   const navigate = useNavigate();
@@ -64,6 +66,7 @@ function App() {
         <Route path="/shotchart" element={<ShotChart />} />
         <Route path="/statszone" element={<StatsZone />} />
         <Route path="*" element={<NotFoundPage />} />
+        <Route path="/drafttool" element={<DraftTool />} />
       </Routes>
     </Router>
   );
