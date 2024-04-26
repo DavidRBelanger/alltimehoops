@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { firestore } from '../firebase';
 import { collection, doc, getDoc } from 'firebase/firestore';
-import '../Styles/ChampionsStyle.css'; // You may need to create this CSS file
+import '../Styles/ChampionsStyle.css'; 
 
 function Champions({ year, setIsLoading }) {
     const [data, setData] = useState(null);
@@ -13,6 +13,8 @@ function Champions({ year, setIsLoading }) {
 
             if (docSnap.exists()) {
                 setData(docSnap.data());
+            } else {
+                console.error('Champions Tile Document does NOT exist in database for year: ', year);
             }
             setIsLoading(false);
         };
@@ -20,6 +22,7 @@ function Champions({ year, setIsLoading }) {
     }, [year]);
 
     const flipResult = (result) => {
+        //used to flip the series result so that the 4 wins always comes first, purely for aesthetics
         const [first, second] = result.split('–');
         return parseInt(first) < parseInt(second) ? `${second}-${first}` : result;
     };
