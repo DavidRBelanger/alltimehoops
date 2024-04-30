@@ -26,7 +26,6 @@ function HomepageContent() {
   return (
     <div className="App">
       <Nav title="Home" />
-  
       <div className="main-container">
         <img id="main-logo" src={logo} alt="logo" />
         <h1 id="main-title">alltimehoops.com</h1>  
@@ -36,7 +35,6 @@ function HomepageContent() {
             <input type="submit" value="Search"></input>
           </form>
           <Link to="/statszone">
-
           <button>Stats Zone</button>
           </Link>
         </div>
