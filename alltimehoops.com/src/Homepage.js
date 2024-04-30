@@ -63,8 +63,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/shotchart" element={<ShotChart />} />
         <Route path="/statszone" element={<StatsZone />} />
+        {/*<Route path="/drafttool" element={<DraftTool />} /> */}
         <Route path="*" element={<NotFoundPage />} />
-        <Route path="/drafttool" element={<DraftTool />} />
       </Routes>
     </Router>
   );

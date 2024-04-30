@@ -11,18 +11,20 @@ function StatsZone() {
                     title="Shot Chart"
                     image={shotChart}
                     link="/shotchart" />
+                    {/*
                 <Tile
                     title="Draft Tool"
                     image={shotChart}
                     link="/drafttool" />
-                />
-                <Tile/>
-                <Tile/>
-                <Tile/>
-                <Tile/>
-                <Tile/>
-                <Tile/>
-                <Tile/>
+                    */}
+                <Tile />
+                <Tile />
+                <Tile />
+                <Tile />
+                <Tile />
+                <Tile />
+                <Tile />
+                <Tile />
             </div >
 
         </div>
@@ -32,7 +34,7 @@ function StatsZone() {
 function Tile({ title, image, link }) {
     return (
         <div className="StatsZone-tile">
-        
+
             <Link to={link}>
                 <img src={image} alt={title} />
                 <h2>{title}</h2>
