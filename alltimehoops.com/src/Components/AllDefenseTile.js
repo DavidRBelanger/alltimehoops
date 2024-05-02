@@ -42,7 +42,7 @@ function AllDefenseTile({ year, setIsLoading }) {
 
     return (
         <div className="all-star-tile">
-            <h1>All Defense</h1>
+            <h1>All-Defense</h1>
             <div className="all-buttons">
 
             {teams.map((team, index) => (

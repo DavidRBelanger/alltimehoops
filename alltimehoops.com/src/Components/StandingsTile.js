@@ -1,41 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { firestore } from '../firebase';
-import { collection, doc, getDoc } from 'firebase/firestore'; 
+import { collection, doc, getDoc } from 'firebase/firestore';
 import '../Styles/StandingsStyles.css';
-/**
- * Last Verified: 3/21/2024 - David Belanger
- * Authors: David Belanger
- *
- * StandingsTile is a React component that fetches and displays NBA standings for a given year.
- *
- * Props:
- * - year: The year for which the standings should be fetched.
- * - setIsLoading: A function to set the loading state of the parent component.
- *
- * State:
- * - easternStandings: An array to store the fetched standings data for the Eastern conference. It's initially an empty array.
- * - westernStandings: An array to store the fetched standings data for the Western conference. It's initially an empty array.
- * - displayEast: A boolean to determine whether to display the Eastern or Western standings. It's initially false.
- *
- * The component uses the useEffect hook to fetch the data when it mounts and whenever the `year` prop changes.
- * It calls an asynchronous function `fetchData`:
- *
- * fetchData Function:
- * This function fetches the data for the standings from Firestore. It constructs a document reference and fetches the document.
- * If the document exists, it adds the document data to the `easternStandings` and `westernStandings` states.
- * After fetching the data, it sets the loading state to false.
- *
- * handleEast Function:
- * This function sets the `displayEast` state to true.
- *
- * handleWest Function:
- * This function sets the `displayEast` state to false.
- *
- * Render:
- * The component renders a div with the class "standings-tile". It displays a title, buttons to switch between the conferences, and a table of standings.
- * The standings table displays the team name, record, and rank for each team.
- */
+
 
 function StandingsTile({ year, setIsLoading }) {
     const [easternStandings, setEasternStandings] = useState([]);
@@ -77,7 +45,7 @@ function StandingsTile({ year, setIsLoading }) {
 
     return (
         <div className="standings-tile">
-            <h1>{year.substring(0, 4)}-{parseInt(year.substring(2,4))+1} NBA Standings</h1>
+            <h1>{year.substring(0, 4)}-{(parseInt(year.substring(2, 4)) + 1).toString().padStart(2, '0')} NBA Standings</h1>
             <div className="standings-buttons">
                 <button onClick={handleWest} disabled={!displayEast}>Western</button>
                 <button onClick={handleEast} disabled={displayEast}>Eastern</button>
