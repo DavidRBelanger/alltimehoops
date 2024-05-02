@@ -10,9 +10,9 @@ initializeApp({
 
 const db = getFirestore();
 
-const collectionRef = db.collection('nba_allstars');
+const collectionRef = db.collection('nba_allnba');
 
-let rawData = fs.readFileSync('C:\\Users\\drbx3\\Downloads\\All-Star Selections.json');
+let rawData = fs.readFileSync('C:/Users/drbx3/Downloads/csvjson (1).json');
 let data = JSON.parse(rawData);
 
 async function writeData() {
@@ -45,7 +45,7 @@ async function writeData() {
         } else {
             await docRef.update({ players: yearData[year] });
         }
-
+        
         
     }
 }

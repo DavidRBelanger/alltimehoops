@@ -19,6 +19,9 @@ import { Link } from 'react-router-dom';
 import { VALID_RANGE } from './Constants.js';
 import StandingsTile from './StandingsTile.js';
 import Champions from './Champions.js';
+import AllNbaTile from './AllNBATile.js';
+import AllDefenseTile from './AllDefenseTile.js';
+import AllRookieTile from './AllRookieTile.js';
 
 /**
  * Last Verified: 3/21/2024 - David Belanger
@@ -69,7 +72,8 @@ function Year() {
         allStarsTile: true,
         draftTile: true,
         standingsTile: true,
-        champions: true
+        champions: true,
+        allNbaTile: true
     });
 
     const [isPageLoading, setIsPageLoading] = useState(true);
@@ -94,9 +98,9 @@ function Year() {
             <>
                 <Nav title="Invalid" />
                 <div className="invalid-class">
-                    <h1>Lost?</h1>
+                    <h1>404 Error</h1>
                     <h2>The year in the URL is either invalid or hasn't been created yet.</h2>
-                    <h2>Checkout <a href="/support">Support</a> if you think there's an issue.</h2>
+                    <h2>Visit <a href="/support">Support</a> if you think there's an issue.</h2>
                 </div>
             </>
         )
@@ -141,6 +145,7 @@ function Year() {
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence6: false }))} occurenceNum={6} />
                         <DraftTile year={(parseInt(year) + 1).toString()} setIsLoading={() => setIsLoading(prev => ({ ...prev, draftTile: false }))} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence8: false }))} occurenceNum={8} />
+                        <AllDefenseTile year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, allDefenseTile: false }))} />
                     </div>
                     <div className="right-column">
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence0: false }))} occurenceNum={0} />
@@ -151,6 +156,8 @@ function Year() {
                         <StandingsTile year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, standingsTile: false }))} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence9: false }))} occurenceNum={9} />
                         <NotableOccurence year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, notableOccurence10: false }))} occurenceNum={10} />
+                        <AllNbaTile year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, allNbaTile: false }))} />
+                        <AllRookieTile year={year} setIsLoading={() => setIsLoading(prev => ({ ...prev, allRookieTile: false }))} />
 
                     </div>
                 </div>

@@ -94,7 +94,36 @@
 }
 
 .all-star-tile button {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+
+}
+
+.all-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;    
+}
+
+.all-buttons button {
+    transition: 0.4s;
+    background-color: var(--background-dark);
+    color: white;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+
+}
+
+.all-players p {
+    font-size: 22px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.individual-player {
+    display: flex;
+    justify-content: space-between;
 }
 
 @media screen and (min-width: 1920px) {

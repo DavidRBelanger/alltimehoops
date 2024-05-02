@@ -118,9 +118,13 @@
         margin-top: 0;
     }
 
+    .top-columns-container {
+        margin-bottom: -50px;
+    }
 
     .bottom-columns-container {
         flex-direction: column;
+        margin-bottom: 100px;
     }
 
     .awards-tile h1 {

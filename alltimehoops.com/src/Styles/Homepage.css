@@ -40,11 +40,18 @@ body {
 }
 
 .App form {
+    transition: 0.4s;
     background-color: var(--orange);
     padding: 10px;
+    padding-bottom: 11px;
     margin: 10px;
     height: 20px;
     border-radius: 5px;
+}
+
+.App form:hover {
+    transition: 0.4s;
+    background-color: var(--orange-dark);
 }
 
 .App form input {
@@ -68,7 +75,12 @@ body {
     border-radius: 5px;
 }
 
+.App form input[type="text"] {
+    margin-top: -1px;
+}
+
 .App button {
+    transition: 0.4s;
     background-color: var(--orange);
     color: white;
     border: none;
@@ -79,7 +91,10 @@ body {
 }
 
 .App button:hover {
+    transition: 0.4s;
+    background-color: var(--orange-dark);
     cursor: pointer;
+
 }
 
 @media screen and (min-width: 667px) and (max-width: 1600px) {
