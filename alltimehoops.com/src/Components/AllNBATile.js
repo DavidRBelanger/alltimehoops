@@ -19,7 +19,6 @@ function AllNbaTile({ year, setIsLoading }) {
                 const seasonData = docSnap.data();
                 const allNbaPlayers = seasonData.players.filter(player => player.type === 'All-NBA');
 
-                // Separate players into teams
                 const teams = {};
                 allNbaPlayers.forEach(player => {
                     const teamNumber = player.number_tm;

@@ -8,7 +8,7 @@ import '../Styles/StandingsStyles.css';
 function StandingsTile({ year, setIsLoading }) {
     const [easternStandings, setEasternStandings] = useState([]);
     const [westernStandings, setWesternStandings] = useState([]);
-    const [displayEast, setDisplayEast] = useState(false);
+    const [displayEast, setPage] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,11 +29,11 @@ function StandingsTile({ year, setIsLoading }) {
     }, [year]);
 
     const handleEast = () => {
-        setDisplayEast(true);
+        setPage(true);
     };
 
     const handleWest = () => {
-        setDisplayEast(false);
+        setPage(false);
     };
 
     const displayedStandings = displayEast ? easternStandings : westernStandings;

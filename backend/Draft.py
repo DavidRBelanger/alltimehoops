@@ -12,8 +12,7 @@ for year in years:
     if not draftData.empty:
         draftPicks = draftData[['PLAYER_NAME', 'TEAM_NAME', 'OVERALL_PICK']].to_dict('records')
         draftDoc = db.collection('nba_drafts').document(str(year+1))
-        draftDoc.set({ # Add the draft picks to the firestore database
+        draftDoc.set({ 
             'picks': draftPicks
         })
         print(f"Added {year} draft picks to Firestore.")
-    time.sleep(.05)  # to avoid hitting rate limits
